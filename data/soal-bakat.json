@@ -1,0 +1,2002 @@
+[
+    {
+        "id": "B001",
+        "type": "bakat",
+        "kategori": "verbal",
+        "skenario": "Bacalah pernyataan berikut: 'Semua atlet adalah orang yang disiplin. Budi adalah atlet.' Kesimpulan mana yang PASTI benar?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Budi adalah orang yang disiplin",
+                "benar": true,
+                "skor": {
+                    "verbal": 3
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Semua orang disiplin adalah atlet",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Budi suka olahraga",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Tidak bisa disimpulkan apa-apa",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B002",
+        "type": "bakat",
+        "kategori": "numerik",
+        "skenario": "Kamu berjualan kue. Hari pertama terjual 12 kue, hari kedua 24 kue, hari ketiga 48 kue. Jika pola ini berlanjut, berapa kue yang terjual di hari kelima?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "96 kue",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "144 kue",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "192 kue",
+                "benar": true,
+                "skor": {
+                    "numerik": 3
+                }
+            },
+            {
+                "label": "D",
+                "teks": "256 kue",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B003",
+        "type": "bakat",
+        "kategori": "abstrak",
+        "skenario": "Perhatikan pola berikut: ● ○ ○ | ● ● ○ | ● ● ● | ___. Apa yang mengisi bagian kosong?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "● ○ ○ ○",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "● ● ● ●",
+                "benar": true,
+                "skor": {
+                    "abstrak": 3
+                }
+            },
+            {
+                "label": "C",
+                "teks": "○ ○ ○ ○",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "● ● ○ ○",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B004",
+        "type": "bakat",
+        "kategori": "spasial",
+        "skenario": "Sebuah kubus memiliki 6 sisi dengan warna berbeda. Jika kamu melihat dari atas dan tampak warna merah, dari depan tampak biru — warna apa yang ada di bawah jika dari kanan tampak kuning?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Hijau",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Oranye",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Tidak bisa ditentukan dari info yang ada",
+                "benar": true,
+                "skor": {
+                    "spasial": 3
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Merah",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B005",
+        "type": "bakat",
+        "kategori": "verbal",
+        "skenario": "Kamu membaca artikel: 'Meskipun teknologi berkembang pesat, literasi membaca di kalangan remaja justru menurun.' Pernyataan mana yang PALING SESUAI dengan isi artikel?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Teknologi menyebabkan remaja malas membaca",
+                "benar": false,
+                "skor": {
+                    "verbal": 1
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Ada hubungan terbalik antara perkembangan teknologi dan minat baca remaja",
+                "benar": true,
+                "skor": {
+                    "verbal": 3
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Remaja lebih pintar dari generasi sebelumnya karena teknologi",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Literasi membaca tidak penting di era teknologi",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B006",
+        "type": "bakat",
+        "kategori": "numerik",
+        "skenario": "Di kelasmu ada 30 siswa. 60% suka matematika, 40% suka seni, dan 20% suka keduanya. Berapa siswa yang tidak suka keduanya?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "4 siswa",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "6 siswa",
+                "benar": true,
+                "skor": {
+                    "numerik": 3
+                }
+            },
+            {
+                "label": "C",
+                "teks": "8 siswa",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "10 siswa",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B007",
+        "type": "bakat",
+        "kategori": "abstrak",
+        "skenario": "Dalam sebuah kode rahasia: A=2, B=4, C=6. Jika pola ini berlanjut, kata 'CAB' dalam kode adalah...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "6-2-4",
+                "benar": true,
+                "skor": {
+                    "abstrak": 3
+                }
+            },
+            {
+                "label": "B",
+                "teks": "3-1-2",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "6-4-2",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "2-4-6",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B008",
+        "type": "bakat",
+        "kategori": "spasial",
+        "skenario": "Kamu berjalan: 3 langkah ke utara, 4 langkah ke timur, lalu 3 langkah ke selatan. Kamu sekarang berada di mana relatif terhadap titik awal?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "4 langkah ke timur dari titik awal",
+                "benar": true,
+                "skor": {
+                    "spasial": 3
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Kembali ke titik awal",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "3 langkah ke utara dan 4 ke timur",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "7 langkah dari titik awal",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B009",
+        "type": "bakat",
+        "kategori": "verbal",
+        "skenario": "Pilih kata yang PALING TEPAT untuk mengisi kalimat: 'Keputusan itu diambil secara ___ tanpa mempertimbangkan dampaknya.'",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Impulsif",
+                "benar": true,
+                "skor": {
+                    "verbal": 3
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Kolektif",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Selektif",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Progressif",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B010",
+        "type": "bakat",
+        "kategori": "numerik",
+        "skenario": "Harga baju diskon 25%, lalu diskon tambahan 20% dari harga setelah diskon pertama. Berapa total diskon sebenarnya dari harga awal?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "40%",
+                "benar": true,
+                "skor": {
+                    "numerik": 3
+                }
+            },
+            {
+                "label": "B",
+                "teks": "45%",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "43%",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "35%",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B011",
+        "type": "bakat",
+        "kategori": "abstrak",
+        "skenario": "Deret angka: 3, 6, 12, 24, 48, ___. Angka berikutnya adalah?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "72",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "96",
+                "benar": true,
+                "skor": {
+                    "abstrak": 3
+                }
+            },
+            {
+                "label": "C",
+                "teks": "84",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "100",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B012",
+        "type": "bakat",
+        "kategori": "verbal",
+        "skenario": "Kalimat mana yang menggunakan kata 'efektif' dengan BENAR?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Obat ini sangat efektif untuk menyembuhkan batuk dalam 2 hari",
+                "benar": true,
+                "skor": {
+                    "verbal": 3
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Dia bekerja dengan sangat efektif sehingga tidak boros waktu",
+                "benar": false,
+                "skor": {
+                    "verbal": 1
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Metode belajar yang efektif adalah yang tidak memerlukan biaya",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Rapat yang efektif selalu berlangsung lebih dari 2 jam",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B013",
+        "type": "bakat",
+        "kategori": "spasial",
+        "skenario": "Sebuah kertas persegi dilipat dua kali menjadi persegi lebih kecil, lalu sudut kanan atas digunting. Ketika dibuka, berapa lubang yang ada?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "1 lubang",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "2 lubang",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "4 lubang",
+                "benar": true,
+                "skor": {
+                    "spasial": 3
+                }
+            },
+            {
+                "label": "D",
+                "teks": "3 lubang",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B014",
+        "type": "bakat",
+        "kategori": "numerik",
+        "skenario": "Sebuah tangki berisi 200 liter air. Setiap jam, 30 liter masuk dan 15 liter keluar. Setelah 8 jam, berapa liter air dalam tangki?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "280 liter",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "320 liter",
+                "benar": true,
+                "skor": {
+                    "numerik": 3
+                }
+            },
+            {
+                "label": "C",
+                "teks": "340 liter",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "360 liter",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B015",
+        "type": "bakat",
+        "kategori": "abstrak",
+        "skenario": "Jika RUMAH = 85, MEJA = 42, maka BUKU = ?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "32",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "44",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "40",
+                "benar": true,
+                "skor": {
+                    "abstrak": 3
+                }
+            },
+            {
+                "label": "D",
+                "teks": "36",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B016",
+        "type": "bakat",
+        "kategori": "verbal",
+        "skenario": "'Prokrastinasi' artinya paling mendekati...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Kebiasaan menunda-nunda pekerjaan",
+                "benar": true,
+                "skor": {
+                    "verbal": 3
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Kemampuan bekerja di bawah tekanan",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Proses pengambilan keputusan cepat",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Sikap perfeksionis yang berlebihan",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B017",
+        "type": "bakat",
+        "kategori": "spasial",
+        "skenario": "Bayangkan sebuah kubus. Kamu melihatnya dari depan-kanan-atas sekaligus. Berapa sisi kubus yang bisa kamu lihat?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "1 sisi",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "2 sisi",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "3 sisi",
+                "benar": true,
+                "skor": {
+                    "spasial": 3
+                }
+            },
+            {
+                "label": "D",
+                "teks": "4 sisi",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B018",
+        "type": "bakat",
+        "kategori": "numerik",
+        "skenario": "Dalam 3 tahun, umur Ani akan dua kali umur Budi sekarang. Budi sekarang berumur 8 tahun. Berapa umur Ani sekarang?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "11 tahun",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "13 tahun",
+                "benar": true,
+                "skor": {
+                    "numerik": 3
+                }
+            },
+            {
+                "label": "C",
+                "teks": "16 tahun",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "19 tahun",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B019",
+        "type": "bakat",
+        "kategori": "abstrak",
+        "skenario": "▲ ▲ ▼ | ▲ ▼ ▼ | ▼ ▼ ▼ | ___. Pola selanjutnya adalah?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "▲ ▲ ▲",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "▼ ▲ ▲",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "▲ ▲ ▼",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "▲ ▼ ▼",
+                "benar": true,
+                "skor": {
+                    "abstrak": 3
+                }
+            }
+        ]
+    },
+    {
+        "id": "B020",
+        "type": "bakat",
+        "kategori": "verbal",
+        "skenario": "Kalimat berikut ini mengandung kesalahan logika: 'Karena hujan turun, jalan pasti basah. Jalan basah, jadi pasti hujan.' Apa yang salah?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Tidak ada yang salah, kesimpulannya valid",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Jalan bisa basah karena sebab lain selain hujan",
+                "benar": true,
+                "skor": {
+                    "verbal": 3
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Hujan tidak selalu membuat jalan basah",
+                "benar": false,
+                "skor": {
+                    "verbal": 1
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Kalimat pertama sudah salah",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B021",
+        "type": "bakat",
+        "kategori": "spasial",
+        "skenario": "Kamu memegang peta dan menghadap ke selatan. Kamu memutar badan 90 derajat ke kiri. Sekarang kamu menghadap ke arah mana?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Utara",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Timur",
+                "benar": true,
+                "skor": {
+                    "spasial": 3
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Barat",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Tenggara",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B022",
+        "type": "bakat",
+        "kategori": "numerik",
+        "skenario": "Sebuah toko menjual 3 produk. Produk A laku 2x lebih banyak dari B. Produk C laku setengah dari B. Jika total terjual 140 unit, berapa unit produk A yang terjual?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "70 unit",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "80 unit",
+                "benar": true,
+                "skor": {
+                    "numerik": 3
+                }
+            },
+            {
+                "label": "C",
+                "teks": "60 unit",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "90 unit",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B023",
+        "type": "bakat",
+        "kategori": "abstrak",
+        "skenario": "Deret: 1, 1, 2, 3, 5, 8, 13, ___. Angka berikutnya?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "18",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "20",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "21",
+                "benar": true,
+                "skor": {
+                    "abstrak": 3
+                }
+            },
+            {
+                "label": "D",
+                "teks": "24",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B024",
+        "type": "bakat",
+        "kategori": "verbal",
+        "skenario": "Bacalah: 'Semua kucing adalah hewan. Beberapa hewan hidup di air.' Kesimpulan mana yang PASTI benar?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Beberapa kucing hidup di air",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Semua hewan adalah kucing",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Tidak ada kesimpulan pasti yang bisa diambil tentang kucing dan air",
+                "benar": true,
+                "skor": {
+                    "verbal": 3
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Kucing tidak bisa hidup di air",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B025",
+        "type": "bakat",
+        "kategori": "spasial",
+        "skenario": "Bayangkan huruf 'F' dicerminkan secara horizontal (dicermin ke kiri-kanan). Hasilnya paling mirip dengan...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "F normal",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "F terbalik menghadap kiri",
+                "benar": true,
+                "skor": {
+                    "spasial": 3
+                }
+            },
+            {
+                "label": "C",
+                "teks": "F terbalik ke bawah",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "F diputar 180 derajat",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B026",
+        "type": "bakat",
+        "kategori": "numerik",
+        "skenario": "Rata-rata nilai 5 siswa adalah 75. Ketika 1 siswa baru bergabung dengan nilai 90, berapa rata-rata nilai baru?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "77.5",
+                "benar": true,
+                "skor": {
+                    "numerik": 3
+                }
+            },
+            {
+                "label": "B",
+                "teks": "80",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "78",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "82.5",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B027",
+        "type": "bakat",
+        "kategori": "abstrak",
+        "skenario": "Jika semua A adalah B, dan semua B adalah C, maka...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Semua C adalah A",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Semua A adalah C",
+                "benar": true,
+                "skor": {
+                    "abstrak": 3
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Beberapa C adalah A",
+                "benar": false,
+                "skor": {
+                    "abstrak": 1
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Tidak bisa disimpulkan",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B028",
+        "type": "bakat",
+        "kategori": "verbal",
+        "skenario": "Kata mana yang BERLAWANAN makna dengan 'ambigu'?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Membingungkan",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Jelas",
+                "benar": true,
+                "skor": {
+                    "verbal": 3
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Samar",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Kompleks",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B029",
+        "type": "bakat",
+        "kategori": "spasial",
+        "skenario": "Jika kamu berdiri di pusat sebuah jam dinding dan menghadap angka 12, angka 3 ada di sebelah mana?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Kiri",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Kanan",
+                "benar": true,
+                "skor": {
+                    "spasial": 3
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Belakang",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Depan",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B030",
+        "type": "bakat",
+        "kategori": "numerik",
+        "skenario": "Sebuah mobil menempuh 240 km dalam 3 jam. Dengan kecepatan yang sama, berapa jam untuk menempuh 400 km?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "4 jam",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "4.5 jam",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "5 jam",
+                "benar": true,
+                "skor": {
+                    "numerik": 3
+                }
+            },
+            {
+                "label": "D",
+                "teks": "5.5 jam",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B031",
+        "type": "bakat",
+        "kategori": "abstrak",
+        "skenario": "■ □ □ □ | ■ ■ □ □ | ■ ■ ■ □ | ___. Pola selanjutnya?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "■ ■ ■ □",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "□ □ □ □",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "■ ■ ■ ■",
+                "benar": true,
+                "skor": {
+                    "abstrak": 3
+                }
+            },
+            {
+                "label": "D",
+                "teks": "■ □ □ □",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B032",
+        "type": "bakat",
+        "kategori": "verbal",
+        "skenario": "Manakah susunan kalimat yang PALING EFEKTIF dan tepat?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Program ini, yang sangat bermanfaat, telah dilaksanakan oleh pemerintah dengan baik",
+                "benar": false,
+                "skor": {
+                    "verbal": 1
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Pemerintah telah melaksanakan program yang sangat bermanfaat ini dengan baik",
+                "benar": true,
+                "skor": {
+                    "verbal": 3
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Dengan baik, program bermanfaat ini oleh pemerintah telah dilaksanakan",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Telah dilaksanakan dengan baik program sangat bermanfaat ini oleh pemerintah",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B033",
+        "type": "bakat",
+        "kategori": "spasial",
+        "skenario": "Sebuah bangunan dilihat dari atas berbentuk L. Dari depan, tampak seperti persegi panjang. Dari sisi kanan, tampak seperti...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Segitiga",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Persegi panjang",
+                "benar": true,
+                "skor": {
+                    "spasial": 3
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Bentuk L",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Lingkaran",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B034",
+        "type": "bakat",
+        "kategori": "numerik",
+        "skenario": "Jika 5 pekerja bisa menyelesaikan pekerjaan dalam 12 hari, berapa hari yang dibutuhkan 10 pekerja untuk pekerjaan yang sama?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "24 hari",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "8 hari",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "6 hari",
+                "benar": true,
+                "skor": {
+                    "numerik": 3
+                }
+            },
+            {
+                "label": "D",
+                "teks": "4 hari",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B035",
+        "type": "bakat",
+        "kategori": "abstrak",
+        "skenario": "Perhatikan pola: 2, 5, 10, 17, 26, ___. Angka berikutnya?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "35",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "37",
+                "benar": true,
+                "skor": {
+                    "abstrak": 3
+                }
+            },
+            {
+                "label": "C",
+                "teks": "39",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "33",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B036",
+        "type": "bakat",
+        "kategori": "verbal",
+        "skenario": "Bacalah: 'Teknologi tidak selamanya membawa kemajuan. Ada kalanya inovasi justru menciptakan masalah baru yang lebih kompleks.' Penulis ingin menyampaikan bahwa...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Teknologi harus dihentikan karena berbahaya",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Kemajuan teknologi selalu diimbangi dengan masalah baru",
+                "benar": false,
+                "skor": {
+                    "verbal": 1
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Dampak teknologi tidak selalu positif dan perlu disikapi kritis",
+                "benar": true,
+                "skor": {
+                    "verbal": 3
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Inovasi lebih banyak merugikan daripada menguntungkan",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B037",
+        "type": "bakat",
+        "kategori": "spasial",
+        "skenario": "Kamu melihat bayangan sebuah benda berbentuk lingkaran. Benda aslinya PASTI berbentuk...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Bola",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Silinder",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Lingkaran atau objek bundar lainnya tergantung sudut cahaya",
+                "benar": true,
+                "skor": {
+                    "spasial": 3
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Piringan datar",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B038",
+        "type": "bakat",
+        "kategori": "numerik",
+        "skenario": "Di sebuah ruangan ada 10 orang. Setiap orang berjabat tangan satu kali dengan semua orang lainnya. Total berapa kali jabat tangan terjadi?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "45 kali",
+                "benar": true,
+                "skor": {
+                    "numerik": 3
+                }
+            },
+            {
+                "label": "B",
+                "teks": "50 kali",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "90 kali",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "100 kali",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B039",
+        "type": "bakat",
+        "kategori": "abstrak",
+        "skenario": "Kata yang tidak termasuk dalam kelompok: Apel, Mangga, Wortel, Jeruk, Anggur.",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Apel",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Jeruk",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Wortel",
+                "benar": true,
+                "skor": {
+                    "abstrak": 3
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Anggur",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B040",
+        "type": "bakat",
+        "kategori": "verbal",
+        "skenario": "Paragraf berikut memiliki satu kalimat yang tidak mendukung ide utama. Mana kalimat yang harus dihapus? 'Indonesia memiliki keanekaragaman hayati yang luar biasa. Hutan tropisnya menjadi rumah bagi ribuan spesies. Ibukota Indonesia adalah Jakarta. Para ilmuwan terus meneliti spesies-spesies baru yang ditemukan di sana.'",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Kalimat pertama",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Kalimat kedua",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Kalimat ketiga",
+                "benar": true,
+                "skor": {
+                    "verbal": 3
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Kalimat keempat",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B041",
+        "type": "bakat",
+        "kategori": "spasial",
+        "skenario": "Sebuah segitiga sama sisi diputar 60 derajat. Hasilnya terlihat...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Berbeda dari aslinya",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Sama persis dengan aslinya",
+                "benar": true,
+                "skor": {
+                    "spasial": 3
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Menjadi persegi",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Menjadi terbalik",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B042",
+        "type": "bakat",
+        "kategori": "numerik",
+        "skenario": "Sebuah pompa mengisi kolam 1/4 bagian per jam. Pompa kedua mengisi 1/6 bagian per jam. Jika keduanya bekerja bersama, berapa jam untuk mengisi kolam penuh?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "2 jam",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "2 jam 24 menit",
+                "benar": true,
+                "skor": {
+                    "numerik": 3
+                }
+            },
+            {
+                "label": "C",
+                "teks": "3 jam",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "2 jam 30 menit",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B043",
+        "type": "bakat",
+        "kategori": "abstrak",
+        "skenario": "Pola warna: Merah, Biru, Hijau, Merah, Biru, Hijau, Merah, ___. Warna berikutnya?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Merah",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Biru",
+                "benar": true,
+                "skor": {
+                    "abstrak": 3
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Hijau",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Kuning",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B044",
+        "type": "bakat",
+        "kategori": "verbal",
+        "skenario": "Manakah penggunaan tanda baca yang PALING TEPAT?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Saya suka makan: nasi, ayam, dan sayur.",
+                "benar": false,
+                "skor": {
+                    "verbal": 1
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Saya suka makan nasi, ayam, dan sayur.",
+                "benar": true,
+                "skor": {
+                    "verbal": 3
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Saya suka makan nasi ayam dan sayur.",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Saya, suka makan nasi ayam dan sayur.",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B045",
+        "type": "bakat",
+        "kategori": "spasial",
+        "skenario": "Dari atas, sebuah objek terlihat seperti bujur sangkar. Dari depan terlihat seperti segitiga. Objek itu paling mungkin berbentuk...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Kubus",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Piramida",
+                "benar": true,
+                "skor": {
+                    "spasial": 3
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Silinder",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Kerucut",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B046",
+        "type": "bakat",
+        "kategori": "numerik",
+        "skenario": "Toko A menjual buku seharga Rp80.000 dengan diskon 10%. Toko B menjual buku yang sama seharga Rp75.000 tanpa diskon. Mana yang lebih murah dan berapa selisihnya?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Toko A lebih murah, selisih Rp3.000",
+                "benar": true,
+                "skor": {
+                    "numerik": 3
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Toko B lebih murah, selisih Rp3.000",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Sama harganya",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Toko A lebih murah, selisih Rp5.000",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B047",
+        "type": "bakat",
+        "kategori": "abstrak",
+        "skenario": "Analogi: Dokter : Pasien = Guru : ___",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Sekolah",
+                "benar": false,
+                "skor": {
+                    "abstrak": 1
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Murid",
+                "benar": true,
+                "skor": {
+                    "abstrak": 3
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Pelajaran",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Nilai",
+                "benar": false,
+                "skor": {
+                    "abstrak": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B048",
+        "type": "bakat",
+        "kategori": "verbal",
+        "skenario": "Paragraf argumentasi yang baik harus memiliki...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Klaim, bukti pendukung, dan kesimpulan yang logis",
+                "benar": true,
+                "skor": {
+                    "verbal": 3
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Banyak kutipan dari tokoh terkenal",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Kalimat yang panjang dan kompleks",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Penggunaan kata-kata ilmiah yang canggih",
+                "benar": false,
+                "skor": {
+                    "verbal": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B049",
+        "type": "bakat",
+        "kategori": "spasial",
+        "skenario": "Kamu sedang di dalam lift dan naik 5 lantai, turun 2 lantai, naik 3 lantai, lalu turun 4 lantai. Jika mulai dari lantai 3, sekarang kamu di lantai berapa?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Lantai 4",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Lantai 5",
+                "benar": true,
+                "skor": {
+                    "spasial": 3
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Lantai 6",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Lantai 7",
+                "benar": false,
+                "skor": {
+                    "spasial": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "B050",
+        "type": "bakat",
+        "kategori": "numerik",
+        "skenario": "Sebuah persegi panjang memiliki panjang dua kali lebarnya. Jika kelilingnya 60 cm, berapa luasnya?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "150 cm²",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "180 cm²",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "200 cm²",
+                "benar": true,
+                "skor": {
+                    "numerik": 3
+                }
+            },
+            {
+                "label": "D",
+                "teks": "240 cm²",
+                "benar": false,
+                "skor": {
+                    "numerik": 0
+                }
+            }
+        ]
+    }
+]

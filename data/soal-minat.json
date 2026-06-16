@@ -1,0 +1,2242 @@
+[
+    {
+        "id": "M001",
+        "type": "minat",
+        "kategori": "aktivitas",
+        "skenario": "Sekolahmu mengadakan pameran karya siswa. Kamu diberi kebebasan penuh untuk berkontribusi. Apa yang paling ingin kamu lakukan?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Membangun stan dan mengatur semua teknis pameran agar berjalan lancar",
+                "skor": {
+                    "R": 3,
+                    "I": 0,
+                    "A": 0,
+                    "S": 0,
+                    "E": 1,
+                    "C": 1
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Meneliti tema pameran dan menyiapkan presentasi yang informatif dan berbasis data",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 1,
+                    "C": 1
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Mendesain poster, dekorasi, dan keseluruhan tampilan visual pameran",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Menjadi pemandu pameran dan membantu pengunjung memahami setiap karya",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 1,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M002",
+        "type": "minat",
+        "kategori": "profesi",
+        "skenario": "Kamu ditawari magang di 4 tempat berbeda selama liburan sekolah. Mana yang paling menarik bagimu?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Workshop bengkel otomotif — belajar merakit dan memperbaiki mesin",
+                "skor": {
+                    "R": 3,
+                    "I": 1,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Laboratorium riset — membantu ilmuwan menganalisis data eksperimen",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 1
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Studio kreatif — membantu desainer membuat konten visual untuk brand",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "NGO sosial — turun langsung membantu komunitas yang membutuhkan",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 1,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M003",
+        "type": "minat",
+        "kategori": "gaya_belajar",
+        "skenario": "Ada tugas besar minggu depan. Bagaimana cara kamu paling nyaman mengerjakannya?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Langsung praktek — bikin prototipe atau model fisik dari topik yang dipelajari",
+                "skor": {
+                    "R": 3,
+                    "I": 0,
+                    "A": 1,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Riset mendalam — baca referensi sebanyak mungkin lalu buat analisis sendiri",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 1
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Visual mapping — bikin mind map, infografis, atau sketsa untuk memahami topik",
+                "skor": {
+                    "R": 0,
+                    "I": 1,
+                    "A": 3,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Diskusi kelompok — belajar sambil mengobrol dan bertukar ide dengan teman",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 1,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M004",
+        "type": "minat",
+        "kategori": "aktivitas",
+        "skenario": "Akhir pekan kosong, tidak ada PR, tidak ada agenda. Kamu paling mungkin melakukan apa?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Bongkar barang elektronik lama di rumah dan coba rakit jadi sesuatu yang baru",
+                "skor": {
+                    "R": 3,
+                    "I": 1,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Baca buku sains atau menonton dokumenter tentang topik yang bikin penasaran",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Menggambar, nulis cerita, atau eksplor hal kreatif yang sudah lama ingin dicoba",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Ngumpul bareng teman atau keluarga, ngobrol, main bareng, atau bantu tetangga",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 0,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M005",
+        "type": "minat",
+        "kategori": "profesi",
+        "skenario": "Kamu diminta jadi ketua acara pensi sekolah. Bagian mana yang paling kamu ingin pegang?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Teknis panggung — sound system, lighting, dan semua setup peralatan",
+                "skor": {
+                    "R": 3,
+                    "I": 0,
+                    "A": 0,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Riset dan konsep — menentukan tema berdasarkan tren dan preferensi siswa",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Kreatif dan dekorasi — desain keseluruhan visual acara dari awal sampai akhir",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Hubungan dan koordinasi — jaga komunikasi antar divisi dan pastikan semua happy",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 1,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M006",
+        "type": "minat",
+        "kategori": "gaya_belajar",
+        "skenario": "Guru memberi kebebasan memilih format presentasi tugas akhir. Kamu memilih...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Demo langsung — bikin alat atau benda yang bisa dilihat dan disentuh",
+                "skor": {
+                    "R": 3,
+                    "I": 0,
+                    "A": 1,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Makalah ilmiah — tulisan panjang dengan data, grafik, dan referensi kuat",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 1
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Video kreatif atau komik — sampaikan materi lewat storytelling visual",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Diskusi panel — presentasi interaktif dengan tanya jawab langsung bersama audiens",
+                "skor": {
+                    "R": 0,
+                    "I": 1,
+                    "A": 0,
+                    "S": 3,
+                    "E": 1,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M007",
+        "type": "minat",
+        "kategori": "aktivitas",
+        "skenario": "Ada masalah di lingkungan sekitar rumahmu — sampah menumpuk di taman. Kamu...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Langsung bikin tempat sampah dari bahan bekas dan pasang sendiri di taman",
+                "skor": {
+                    "R": 3,
+                    "I": 0,
+                    "A": 1,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Analisis penyebab masalahnya dulu, lalu rancang solusi sistematis jangka panjang",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Bikin kampanye visual — poster, konten medsos — untuk mengubah kebiasaan warga",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 1,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Kumpulkan warga dan ajak gotong royong bersih-bersih taman bareng-bareng",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 1,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M008",
+        "type": "minat",
+        "kategori": "profesi",
+        "skenario": "Di masa depan, kamu paling ingin dikenal sebagai...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Orang yang bisa membangun dan memperbaiki apa saja dengan tangannya sendiri",
+                "skor": {
+                    "R": 3,
+                    "I": 0,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Orang yang menemukan solusi baru untuk masalah yang belum terpecahkan",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Orang yang karyanya menginspirasi dan menggerakkan emosi banyak orang",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Orang yang selalu ada dan membuat perbedaan nyata dalam kehidupan orang lain",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 0,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M009",
+        "type": "minat",
+        "kategori": "gaya_belajar",
+        "skenario": "Kamu harus mempelajari topik baru yang sama sekali tidak kamu tahu dalam waktu singkat. Strategimu?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Langsung coba dan trial-error — belajar paling cepat dari kesalahan sendiri",
+                "skor": {
+                    "R": 3,
+                    "I": 0,
+                    "A": 0,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Cari sumber terpercaya, pelajari teorinya dulu baru mulai praktek",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 1
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Cari video atau konten visual yang menjelaskan topik dengan cara menarik",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Tanya orang yang sudah paham dan minta dijelaskan langsung secara personal",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 0,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M010",
+        "type": "minat",
+        "kategori": "aktivitas",
+        "skenario": "Kamu bergabung dalam tim proyek sekolah. Tanpa diminta, kamu secara natural langsung...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Ngurus semua hal teknis — komputer, alat, dan infrastruktur proyek",
+                "skor": {
+                    "R": 3,
+                    "I": 0,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 1
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Riset dan kumpulkan data sebanyak mungkin sebagai fondasi keputusan tim",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 1
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Mulai sketsa konsep visual dan ide kreatif untuk membuat proyek tampil beda",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Pastikan semua anggota tim nyaman, didengar, dan tahu apa yang harus dilakukan",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 1,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M011",
+        "type": "minat",
+        "kategori": "profesi",
+        "skenario": "Kamu punya kemampuan lebih di satu bidang. Paling ingin kamu gunakan untuk...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Membangun infrastruktur atau sistem yang bisa dipakai banyak orang",
+                "skor": {
+                    "R": 3,
+                    "I": 0,
+                    "A": 0,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Meneliti fenomena alam atau sosial yang belum banyak dipahami orang",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Menciptakan karya seni atau konten yang dinikmati jutaan orang",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Mendampingi dan membimbing orang lain agar bisa berkembang",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 0,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M012",
+        "type": "minat",
+        "kategori": "aktivitas",
+        "skenario": "Kamu mendapat hadiah uang Rp500.000. Yang pertama terlintas di pikiranmu adalah...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Beli komponen elektronik atau alat untuk proyek yang sudah lama ingin dibuat",
+                "skor": {
+                    "R": 3,
+                    "I": 1,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Beli buku atau kursus online untuk memperdalam ilmu yang sedang dipelajari",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 1
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Beli alat gambar, kamera, atau perlengkapan kreatif lainnya",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Ajak teman-teman makan atau jalan bareng sebagai quality time bersama",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 1,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M013",
+        "type": "minat",
+        "kategori": "gaya_belajar",
+        "skenario": "Saat menghadapi konflik dalam kelompok, caramu menyelesaikannya adalah...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Fokus selesaikan masalah teknisnya dulu — kalau sistem sudah benar, konflik reda sendiri",
+                "skor": {
+                    "R": 3,
+                    "I": 0,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 1
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Analisis akar masalahnya secara objektif dan usulkan solusi berbasis data",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Cari cara kreatif untuk mengubah sudut pandang semua pihak yang berkonflik",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 1,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Dengarkan semua pihak satu per satu dan jadi mediator yang netral",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 1,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M014",
+        "type": "minat",
+        "kategori": "profesi",
+        "skenario": "Kamu diminta memilih satu mata kuliah yang akan kamu dalami secara serius. Pilihanmu?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Teknik Mesin atau Elektro — suka memahami cara kerja mesin dan sistem",
+                "skor": {
+                    "R": 3,
+                    "I": 1,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Matematika atau Fisika — tertarik pada logika murni dan hukum alam semesta",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 1
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Desain Grafis atau Seni Rupa — ingin menguasai bahasa visual sepenuhnya",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Psikologi atau Sosiologi — ingin memahami perilaku dan dinamika manusia",
+                "skor": {
+                    "R": 0,
+                    "I": 1,
+                    "A": 0,
+                    "S": 3,
+                    "E": 0,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M015",
+        "type": "minat",
+        "kategori": "aktivitas",
+        "skenario": "Ada 2 jam waktu luang di sekolah. Kamu lebih memilih...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Pergi ke lab komputer atau ruang teknik dan eksplor sesuatu yang baru",
+                "skor": {
+                    "R": 3,
+                    "I": 1,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Pergi ke perpustakaan dan baca buku atau jurnal yang menarik",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 1
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Ngesketch, nulis, atau buat sesuatu di notebook sambil dengerin musik",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Kumpul di kantin dan ngobrol seru bareng teman-teman",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 1,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M016",
+        "type": "minat",
+        "kategori": "gaya_belajar",
+        "skenario": "Kamu baru saja gagal dalam sebuah proyek. Reaksi pertamamu adalah...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Langsung cek bagian mana yang rusak dan mulai perbaiki dari sana",
+                "skor": {
+                    "R": 3,
+                    "I": 0,
+                    "A": 0,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Evaluasi proses dari awal — cari tahu di mana logika atau perhitungannya salah",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 1
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Ambil jeda dulu, lalu cari inspirasi baru untuk pendekatan yang berbeda",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Cerita ke teman atau mentor dan minta perspektif mereka tentang apa yang salah",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 0,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M017",
+        "type": "minat",
+        "kategori": "profesi",
+        "skenario": "Kamu melihat berita tentang masalah besar di dunia. Yang paling menggerakkanmu untuk bertindak adalah...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Krisis energi — ingin ciptakan teknologi energi bersih yang efisien",
+                "skor": {
+                    "R": 3,
+                    "I": 1,
+                    "A": 0,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Penyakit baru — ingin meneliti dan menemukan obat atau vaksinnya",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 1,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Krisis identitas budaya — ingin lestarikan budaya lewat seni dan media",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 1,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Kemiskinan dan ketimpangan — ingin langsung turun ke lapangan membantu",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 1,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M018",
+        "type": "minat",
+        "kategori": "aktivitas",
+        "skenario": "Kamu diminta mengisi acara talent show sekolah. Kamu tampil dengan...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Demo teknologi keren — seperti robot mini atau alat unik buatan sendiri",
+                "skor": {
+                    "R": 3,
+                    "I": 1,
+                    "A": 1,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Presentasi fakta mengejutkan tentang fenomena sains yang jarang diketahui",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Penampilan seni — musik, tari, puisi, atau pertunjukan visual",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Stand-up comedy atau pertunjukan yang melibatkan interaksi dengan penonton",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 1,
+                    "S": 3,
+                    "E": 1,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M019",
+        "type": "minat",
+        "kategori": "gaya_belajar",
+        "skenario": "Guru memberikan proyek bebas — topik dan format terserah. Kamu pilih...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Bikin alat atau mesin sederhana yang bisa menyelesaikan masalah nyata",
+                "skor": {
+                    "R": 3,
+                    "I": 1,
+                    "A": 0,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Riset mendalam tentang fenomena yang selama ini bikin penasaran",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 1
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Bikin karya seni, film pendek, atau novel grafis dengan pesan kuat",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Program sosial — wawancara komunitas dan buat laporan dampaknya",
+                "skor": {
+                    "R": 0,
+                    "I": 1,
+                    "A": 0,
+                    "S": 3,
+                    "E": 1,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M020",
+        "type": "minat",
+        "kategori": "profesi",
+        "skenario": "Kalau bisa memilih pekerjaan impian tanpa batasan apapun, kamu memilih jadi...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Engineer atau arsitek yang merancang bangunan dan infrastruktur masa depan",
+                "skor": {
+                    "R": 3,
+                    "I": 1,
+                    "A": 1,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Ilmuwan atau peneliti yang mengungkap misteri alam semesta",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Seniman, musisi, atau sutradara yang karyanya dikenal seluruh dunia",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Dokter, psikolog, atau guru yang mengubah kehidupan orang secara langsung",
+                "skor": {
+                    "R": 0,
+                    "I": 1,
+                    "A": 0,
+                    "S": 3,
+                    "E": 0,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M021",
+        "type": "minat",
+        "kategori": "aktivitas",
+        "skenario": "Kamu sedang menonton film. Genre apa yang paling kamu nikmati?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Sci-fi atau thriller teknologi — suka lihat bagaimana masa depan digambarkan",
+                "skor": {
+                    "R": 2,
+                    "I": 2,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Dokumenter atau misteri — suka mengikuti proses investigasi dan pengungkapan fakta",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 1
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Drama sinematik atau animasi — terkesan dengan keindahan visual dan ceritanya",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 1,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Komedi romantis atau film keluarga — yang hangat dan menyentuh hati",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 1,
+                    "S": 3,
+                    "E": 0,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M022",
+        "type": "minat",
+        "kategori": "profesi",
+        "skenario": "Kamu bergabung di startup baru. Posisi mana yang paling ingin kamu ambil?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "CTO — memimpin pengembangan teknologi dan arsitektur sistem",
+                "skor": {
+                    "R": 2,
+                    "I": 2,
+                    "A": 0,
+                    "S": 0,
+                    "E": 2,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Head of Research — memimpin tim riset dan pengembangan produk berbasis data",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 1,
+                    "C": 1
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Creative Director — menentukan identitas visual dan narasi brand",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 0,
+                    "E": 2,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Head of People — membangun budaya perusahaan dan menjaga kesejahteraan tim",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 2,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M023",
+        "type": "minat",
+        "kategori": "gaya_belajar",
+        "skenario": "Kamu mendapat nilai buruk di ujian. Langkah pertama yang kamu ambil?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Cari soal latihan sebanyak mungkin dan kerjakan ulang sampai benar-benar paham",
+                "skor": {
+                    "R": 2,
+                    "I": 1,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 2
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Pelajari ulang konsep dasarnya — kalau fondasinya kuat, detail akan mengikuti",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 1
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Buat catatan visual yang lebih menarik agar lebih mudah diingat",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Minta teman yang nilainya bagus untuk belajar bersama dan saling mengajari",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 0,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M024",
+        "type": "minat",
+        "kategori": "aktivitas",
+        "skenario": "Kamu diajak volunteer. Program mana yang paling menarik bagimu?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Bantu perbaiki fasilitas umum yang rusak di desa terpencil",
+                "skor": {
+                    "R": 3,
+                    "I": 0,
+                    "A": 0,
+                    "S": 1,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Riset lingkungan — kumpulkan data polusi dan buat laporan untuk pemerintah",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 1,
+                    "E": 0,
+                    "C": 1
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Workshop seni untuk anak-anak kurang mampu di perkotaan",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 2,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Pendampingan langsung — jadi mentor atau teman bagi anak-anak yatim",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 0,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M025",
+        "type": "minat",
+        "kategori": "profesi",
+        "skenario": "Kamu bisa pilih satu superpower untuk dimiliki. Yang kamu pilih?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Bisa membuat atau memperbaiki apapun hanya dengan menyentuhnya",
+                "skor": {
+                    "R": 3,
+                    "I": 0,
+                    "A": 1,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Bisa memahami dan menganalisis segalanya dengan sempurna secara instan",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Bisa menciptakan karya seni atau musik yang menggerakkan semua orang",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 1,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Bisa memahami perasaan orang lain dan langsung tahu cara membantunya",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 0,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M026",
+        "type": "minat",
+        "kategori": "gaya_belajar",
+        "skenario": "Cara terbaik untuk membuatmu benar-benar termotivasi dalam belajar adalah...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Ada hasil nyata yang bisa dilihat dan disentuh dari apa yang dipelajari",
+                "skor": {
+                    "R": 3,
+                    "I": 0,
+                    "A": 1,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Ada pertanyaan besar yang belum terjawab dan menantang untuk dipecahkan",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Ada kebebasan untuk mengekspresikan pemahaman dengan cara unik sendiri",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Ada orang lain yang akan terbantu dari ilmu yang sedang dipelajari",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 0,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M027",
+        "type": "minat",
+        "kategori": "aktivitas",
+        "skenario": "Kamu bisa pergi ke mana saja selama satu bulan untuk belajar. Kamu pilih...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Jepang — belajar teknik manufaktur dan robotika dari para ahlinya langsung",
+                "skor": {
+                    "R": 3,
+                    "I": 1,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Swiss — mengunjungi CERN dan lembaga riset ilmiah kelas dunia",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Italia atau Prancis — serap budaya seni, arsitektur, dan mode terbaik dunia",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Afrika atau Asia Selatan — terlibat langsung dalam program pemberdayaan komunitas",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 1,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M028",
+        "type": "minat",
+        "kategori": "profesi",
+        "skenario": "Kamu diberi dana besar untuk membangun sesuatu. Kamu memilih membangun...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Pabrik atau fasilitas produksi yang efisien dan ramah lingkungan",
+                "skor": {
+                    "R": 3,
+                    "I": 0,
+                    "A": 0,
+                    "S": 0,
+                    "E": 2,
+                    "C": 1
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Pusat riset dan inovasi tempat para ilmuwan muda bisa bereksperimen",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Galeri seni atau ruang kreatif terbuka untuk semua lapisan masyarakat",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 1,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Sekolah atau klinik gratis untuk komunitas yang tidak mampu mengaksesnya",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 1,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M029",
+        "type": "minat",
+        "kategori": "gaya_belajar",
+        "skenario": "Kamu paling mudah mengingat sesuatu kalau...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Sudah pernah mempraktekkannya sendiri secara langsung",
+                "skor": {
+                    "R": 3,
+                    "I": 0,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Sudah memahami logika dan alasan di balik sesuatu tersebut",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Ada gambar, warna, atau asosiasi visual yang melekat di ingatan",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Sudah pernah menjelaskan atau mendiskusikannya dengan orang lain",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 0,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M030",
+        "type": "minat",
+        "kategori": "aktivitas",
+        "skenario": "Teman-temanmu membutuhkan bantuanmu dalam hal berbeda. Mana yang paling alami kamu lakukan?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Bantu perbaiki laptop atau gadget yang bermasalah",
+                "skor": {
+                    "R": 3,
+                    "I": 0,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Jelaskan materi pelajaran yang sulit dengan cara yang logis dan sistematis",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 1,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Bantu desain poster atau konten medsos untuk acara mereka",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Dengarkan masalah pribadi mereka dan beri dukungan emosional",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 0,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M031",
+        "type": "minat",
+        "kategori": "profesi",
+        "skenario": "Kamu membaca tentang profesi masa depan. Yang paling membuatmu bersemangat?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Space Engineer — merancang infrastruktur untuk koloni manusia di Mars",
+                "skor": {
+                    "R": 3,
+                    "I": 1,
+                    "A": 0,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "AI Researcher — mengembangkan kecerdasan buatan yang bisa memahami manusia",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Experience Designer — menciptakan pengalaman immersif di dunia virtual dan nyata",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Mental Health Advocate — membangun sistem kesehatan jiwa yang bisa diakses semua orang",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 1,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M032",
+        "type": "minat",
+        "kategori": "gaya_belajar",
+        "skenario": "Kamu harus memilih cara belajar bahasa baru. Kamu pilih...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Langsung pergi ke negara itu dan belajar dari percakapan sehari-hari",
+                "skor": {
+                    "R": 3,
+                    "I": 0,
+                    "A": 0,
+                    "S": 1,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Pelajari tata bahasa dan strukturnya dulu sebelum mulai bicara",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 2
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Tonton film, dengarkan musik, dan baca buku dalam bahasa itu",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Cari language partner dan belajar sambil mengobrol santai setiap hari",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 1,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M033",
+        "type": "minat",
+        "kategori": "aktivitas",
+        "skenario": "Di waktu senggang, kamu lebih sering...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Olahraga, hiking, atau kegiatan fisik yang melibatkan koordinasi tangan-mata",
+                "skor": {
+                    "R": 3,
+                    "I": 0,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Main puzzle, catur, atau game strategi yang mengasah logika",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 1
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Mendengarkan musik, melukis, menulis puisi, atau kegiatan ekspresi diri",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Jalan-jalan, nongkrong, atau kegiatan sosial bersama banyak orang",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 1,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M034",
+        "type": "minat",
+        "kategori": "profesi",
+        "skenario": "Dunia butuh solusimu sekarang. Kamu paling yakin bisa berkontribusi dalam bidang...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Infrastruktur dan konstruksi — bangun jembatan, jalan, dan fasilitas yang tahan lama",
+                "skor": {
+                    "R": 3,
+                    "I": 0,
+                    "A": 1,
+                    "S": 0,
+                    "E": 1,
+                    "C": 1
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Kesehatan dan farmasi — kembangkan obat dan teknologi medis terbaru",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 1,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Media dan hiburan — buat konten yang mendidik sekaligus menghibur jutaan orang",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 1,
+                    "E": 2,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Pendidikan dan sosial — transformasi sistem pendidikan agar merata dan berkualitas",
+                "skor": {
+                    "R": 0,
+                    "I": 1,
+                    "A": 0,
+                    "S": 3,
+                    "E": 1,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M035",
+        "type": "minat",
+        "kategori": "gaya_belajar",
+        "skenario": "Kamu paling mudah fokus saat belajar dalam kondisi...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Sambil melakukan sesuatu — gerak, tulis, atau praktek langsung",
+                "skor": {
+                    "R": 3,
+                    "I": 0,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Sendirian di tempat tenang dengan semua referensi tersedia di depan",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 1
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Sambil mendengarkan musik atau di tempat yang punya suasana dan estetika",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Di kafe atau tempat ramai bersama teman yang juga sedang belajar",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 0,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M036",
+        "type": "minat",
+        "kategori": "aktivitas",
+        "skenario": "Kamu ikut lomba antar sekolah. Lomba apa yang paling ingin kamu ikuti?",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Olimpiade robotika atau kompetisi rancang bangun",
+                "skor": {
+                    "R": 3,
+                    "I": 1,
+                    "A": 0,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Olimpiade sains atau kompetisi penelitian ilmiah",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Lomba desain grafis, fotografi, atau karya tulis kreatif",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Debat atau lomba pidato yang menuntut kemampuan komunikasi",
+                "skor": {
+                    "R": 0,
+                    "I": 1,
+                    "A": 0,
+                    "S": 3,
+                    "E": 1,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M037",
+        "type": "minat",
+        "kategori": "profesi",
+        "skenario": "Kamu ditanya dalam wawancara: 'Apa yang membuatmu bangga?' Jawabanmu...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Ketika berhasil membuat sesuatu yang sebelumnya tidak ada atau rusak menjadi berfungsi",
+                "skor": {
+                    "R": 3,
+                    "I": 0,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Ketika berhasil memecahkan masalah yang sebelumnya dianggap tidak mungkin diselesaikan",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Ketika karya atau ideku diapresiasi dan menginspirasi orang lain untuk berkreasi",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Ketika seseorang berterima kasih karena aku benar-benar membuat hidupnya lebih baik",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 0,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M038",
+        "type": "minat",
+        "kategori": "gaya_belajar",
+        "skenario": "Guru menjelaskan konsep baru yang rumit. Kamu paling mudah mengerti kalau...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Langsung disuruh praktek dan mencoba sendiri meski belum sepenuhnya mengerti",
+                "skor": {
+                    "R": 3,
+                    "I": 0,
+                    "A": 0,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Dijelaskan dengan logika yang runtut dan contoh-contoh konkret berbasis data",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 0,
+                    "E": 0,
+                    "C": 1
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Digambarkan atau divisualisasikan dalam bentuk diagram, animasi, atau metafora",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 0,
+                    "E": 0,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Bisa langsung tanya jawab dan diskusi bebas dengan guru maupun teman",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 0,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M039",
+        "type": "minat",
+        "kategori": "aktivitas",
+        "skenario": "Kamu diminta membuat konten untuk sosial media sekolah. Kamu paling tertarik membuat...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Tutorial atau demo cara membuat sesuatu — DIY atau teknologi sederhana",
+                "skor": {
+                    "R": 3,
+                    "I": 0,
+                    "A": 1,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Infografis atau thread edukatif tentang fakta-fakta menarik",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 1,
+                    "S": 0,
+                    "E": 0,
+                    "C": 1
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Konten visual estetis — foto, ilustrasi, atau video sinematik",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 0,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Konten wawancara atau cerita inspiratif tentang orang-orang di sekitar sekolah",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 1,
+                    "S": 3,
+                    "E": 1,
+                    "C": 0
+                }
+            }
+        ]
+    },
+    {
+        "id": "M040",
+        "type": "minat",
+        "kategori": "profesi",
+        "skenario": "Kamu diminta pidato di depan seluruh sekolah tentang visimu untuk masa depan. Kamu bicara tentang...",
+        "opsi": [
+            {
+                "label": "A",
+                "teks": "Pentingnya inovasi teknologi dan bagaimana generasi muda bisa membangun masa depan",
+                "skor": {
+                    "R": 2,
+                    "I": 2,
+                    "A": 0,
+                    "S": 0,
+                    "E": 2,
+                    "C": 0
+                }
+            },
+            {
+                "label": "B",
+                "teks": "Pentingnya ilmu pengetahuan dan riset sebagai fondasi kemajuan bangsa",
+                "skor": {
+                    "R": 0,
+                    "I": 3,
+                    "A": 0,
+                    "S": 1,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "C",
+                "teks": "Kekuatan seni dan kreativitas dalam mengubah cara kita melihat dan memahami dunia",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 3,
+                    "S": 1,
+                    "E": 1,
+                    "C": 0
+                }
+            },
+            {
+                "label": "D",
+                "teks": "Pentingnya empati dan kolaborasi dalam membangun masyarakat yang lebih baik",
+                "skor": {
+                    "R": 0,
+                    "I": 0,
+                    "A": 0,
+                    "S": 3,
+                    "E": 1,
+                    "C": 0
+                }
+            }
+        ]
+    }
+]

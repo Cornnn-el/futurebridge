@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FutureBridge — Story Edition</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- =============================================
+     NAV
+     ============================================= -->
+<nav>
+  <div class="logo">
+    <span class="logo-dot"></span>
+    Future<em>Bridge</em>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">Tentang</a></li>
+    <li><a href="#characters">Karakter</a></li>
+    <li><a href="#how">Cara Kerja</a></li>
+    <li><a href="#features">Fitur</a></li>
+  </ul>
+  <button class="nav-btn">▶ MULAI CERITA</button>
+</nav>
+
+<!-- =============================================
+     HERO
+     ============================================= -->
+<section class="hero">
+  <canvas id="star-canvas"></canvas>
+
+  <span class="hero-badge">✦ INTERACTIVE STORYBOOK ✦</span>
+  <p class="hero-eyebrow">TEMUKAN POTENSIMU MELALUI CERITA</p>
+
+  <h1 class="hero-title">
+    <span class="v">Future</span><span class="c">Bridge</span>
+  </h1>
+  <p class="hero-edition">STORY EDITION</p>
+
+  <p class="hero-typing" id="typing-text"><span class="cursor"></span></p>
+
+  <div class="hero-btns">
+    <button class="btn-primary">▶ MULAI PETUALANGAN</button>
+    <button class="btn-outline">◈ LIHAT DEMO</button>
+  </div>
+
+  <!-- Pixel Characters -->
+  <div class="hero-chars">
+
+    <!-- Alya — pink/medical -->
+    <div class="hero-char-wrap">
+      <svg width="64" height="80" viewBox="0 0 16 20" xmlns="http://www.w3.org/2000/svg" style="image-rendering:pixelated">
+        <rect x="4" y="0" width="8" height="1" fill="#FF6B9D"/>
+        <rect x="3" y="1" width="10" height="3" fill="#FF6B9D"/>
+        <rect x="3" y="3" width="10" height="6" fill="#FFCBA4"/>
+        <rect x="4" y="4" width="2" height="2" fill="#1A0A12"/>
+        <rect x="10" y="4" width="2" height="2" fill="#1A0A12"/>
+        <rect x="4" y="3" width="2" height="2" fill="#FFB5C0"/>
+        <rect x="10" y="3" width="2" height="2" fill="#FFB5C0"/>
+        <rect x="5" y="7" width="6" height="1" fill="#CC3366"/>
+        <rect x="6" y="8" width="4" height="1" fill="#FFCBA4"/>
+        <rect x="2" y="9" width="12" height="7" fill="#FFFFFF"/>
+        <rect x="1" y="10" width="2" height="5" fill="#FFFFFF"/>
+        <rect x="13" y="10" width="2" height="5" fill="#FFFFFF"/>
+        <rect x="7" y="10" width="2" height="4" fill="#FF3355"/>
+        <rect x="6" y="11" width="4" height="2" fill="#FF3355"/>
+        <rect x="4" y="16" width="3" height="3" fill="#E8558A"/>
+        <rect x="9" y="16" width="3" height="3" fill="#E8558A"/>
+        <rect x="3" y="19" width="4" height="1" fill="#1A0A12"/>
+        <rect x="9" y="19" width="4" height="1" fill="#1A0A12"/>
+      </svg>
+      <span class="hero-char-label" style="color:var(--pink)">ALYA</span>
+    </div>
+
+    <!-- Bima — purple/thinker -->
+    <div class="hero-char-wrap">
+      <svg width="64" height="80" viewBox="0 0 16 20" xmlns="http://www.w3.org/2000/svg" style="image-rendering:pixelated">
+        <rect x="3" y="0" width="10" height="4" fill="#2D1B5C"/>
+        <rect x="2" y="1" width="2" height="3" fill="#2D1B5C"/>
+        <rect x="3" y="3" width="10" height="6" fill="#FFCBA4"/>
+        <rect x="4" y="4" width="3" height="1" fill="#2D1B5C"/>
+        <rect x="4" y="6" width="3" height="1" fill="#2D1B5C"/>
+        <rect x="4" y="4" width="1" height="3" fill="#2D1B5C"/>
+        <rect x="6" y="4" width="1" height="3" fill="#2D1B5C"/>
+        <rect x="9" y="4" width="3" height="1" fill="#2D1B5C"/>
+        <rect x="9" y="6" width="3" height="1" fill="#2D1B5C"/>
+        <rect x="9" y="4" width="1" height="3" fill="#2D1B5C"/>
+        <rect x="11" y="4" width="1" height="3" fill="#2D1B5C"/>
+        <rect x="7" y="5" width="2" height="1" fill="#2D1B5C"/>
+        <rect x="5" y="5" width="1" height="1" fill="#1A0A12"/>
+        <rect x="10" y="5" width="1" height="1" fill="#1A0A12"/>
+        <rect x="6" y="7" width="4" height="1" fill="#CC7744"/>
+        <rect x="6" y="8" width="4" height="1" fill="#FFCBA4"/>
+        <rect x="3" y="9" width="10" height="7" fill="#7B2FFF"/>
+        <rect x="2" y="10" width="2" height="5" fill="#7B2FFF"/>
+        <rect x="12" y="10" width="2" height="5" fill="#7B2FFF"/>
+        <rect x="6" y="11" width="4" height="3" fill="#4A1AAA"/>
+        <rect x="4" y="16" width="3" height="3" fill="#1E0C3A"/>
+        <rect x="9" y="16" width="3" height="3" fill="#1E0C3A"/>
+        <rect x="3" y="19" width="4" height="1" fill="#1A0A12"/>
+        <rect x="9" y="19" width="4" height="1" fill="#1A0A12"/>
+      </svg>
+      <span class="hero-char-label" style="color:var(--violet)">BIMA</span>
+    </div>
+
+    <!-- Nara — gold/artist -->
+    <div class="hero-char-wrap">
+      <svg width="64" height="80" viewBox="0 0 16 20" xmlns="http://www.w3.org/2000/svg" style="image-rendering:pixelated">
+        <rect x="4" y="0" width="8" height="2" fill="#E67E00"/>
+        <rect x="3" y="0" width="10" height="5" fill="#FFD700"/>
+        <rect x="2" y="4" width="2" height="8" fill="#FFD700"/>
+        <rect x="12" y="4" width="2" height="8" fill="#FFD700"/>
+        <rect x="3" y="2" width="10" height="7" fill="#FFCBA4"/>
+        <rect x="5" y="4" width="2" height="2" fill="#1A0A12"/>
+        <rect x="9" y="4" width="2" height="2" fill="#1A0A12"/>
+        <rect x="5" y="7" width="6" height="1" fill="#CC7744"/>
+        <rect x="6" y="8" width="4" height="1" fill="#FFCBA4"/>
+        <rect x="3" y="9" width="10" height="7" fill="#FFFFFF"/>
+        <rect x="2" y="10" width="2" height="5" fill="#FFD700"/>
+        <rect x="12" y="10" width="2" height="5" fill="#FFD700"/>
+        <rect x="5" y="10" width="2" height="2" fill="#FF6B9D"/>
+        <rect x="9" y="12" width="2" height="2" fill="#7B2FFF"/>
+        <rect x="7" y="14" width="2" height="1" fill="#00F5D4"/>
+        <rect x="4" y="16" width="3" height="3" fill="#8B6914"/>
+        <rect x="9" y="16" width="3" height="3" fill="#8B6914"/>
+        <rect x="3" y="19" width="4" height="1" fill="#1A0A12"/>
+        <rect x="9" y="19" width="4" height="1" fill="#1A0A12"/>
+      </svg>
+      <span class="hero-char-label" style="color:var(--gold)">NARA</span>
+    </div>
+
+    <!-- Raka — cyan/tech -->
+    <div class="hero-char-wrap">
+      <svg width="64" height="80" viewBox="0 0 16 20" xmlns="http://www.w3.org/2000/svg" style="image-rendering:pixelated">
+        <rect x="4" y="0" width="8" height="3" fill="#003355"/>
+        <rect x="3" y="1" width="1" height="3" fill="#003355"/>
+        <rect x="12" y="1" width="1" height="3" fill="#003355"/>
+        <rect x="3" y="3" width="10" height="6" fill="#FFCBA4"/>
+        <rect x="5" y="4" width="2" height="2" fill="#00F5D4"/>
+        <rect x="9" y="4" width="2" height="2" fill="#00F5D4"/>
+        <rect x="5" y="4" width="1" height="1" fill="#009E88"/>
+        <rect x="9" y="4" width="1" height="1" fill="#009E88"/>
+        <rect x="6" y="7" width="4" height="1" fill="#CC7744"/>
+        <rect x="6" y="8" width="4" height="1" fill="#FFCBA4"/>
+        <rect x="3" y="9" width="10" height="7" fill="#006688"/>
+        <rect x="2" y="10" width="2" height="5" fill="#006688"/>
+        <rect x="12" y="10" width="2" height="5" fill="#006688"/>
+        <rect x="5" y="10" width="6" height="1" fill="#00F5D4"/>
+        <rect x="5" y="12" width="2" height="1" fill="#00F5D4"/>
+        <rect x="9" y="12" width="2" height="1" fill="#00F5D4"/>
+        <rect x="7" y="11" width="2" height="3" fill="#00F5D4"/>
+        <rect x="4" y="16" width="3" height="3" fill="#004455"/>
+        <rect x="9" y="16" width="3" height="3" fill="#004455"/>
+        <rect x="3" y="19" width="4" height="1" fill="#00F5D4"/>
+        <rect x="9" y="19" width="4" height="1" fill="#00F5D4"/>
+      </svg>
+      <span class="hero-char-label" style="color:var(--cyan)">RAKA</span>
+    </div>
+
+  </div><!-- /.hero-chars -->
+</section>
+
+<!-- =============================================
+     ABOUT
+     ============================================= -->
+<section class="sec sec-dark" id="about">
+  <div class="inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <span class="eyebrow">// TENTANG PROYEK</span>
+        <h2 class="sec-title">Bukan Sekadar Tes Minat Biasa</h2>
+        <p>
+          FutureBridge Story Edition adalah <strong>Interactive Storybook berbasis AI</strong>
+          yang membantu anak-anak mengenali minat, potensi, dan cita-cita mereka.
+        </p>
+        <p>
+          Alih-alih mengisi kuesioner formal yang membingungkan, anak-anak cukup
+          <strong>membaca cerita</strong> dan membuat pilihan seperti dalam petualangan interaktif.
+        </p>
+        <p>
+          Setiap pilihan direkam oleh sistem AI kami, lalu dianalisis untuk menghasilkan
+          rekomendasi bidang studi yang personal.
+        </p>
+        <div class="stat-grid">
+          <div class="stat-card">
+            <span class="stat-num">4</span>
+            <span class="stat-label">Karakter Cerita</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">AI</span>
+            <span class="stat-label">Analisis Pilihan</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">∞</span>
+            <span class="stat-label">Jalur Cerita</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Fun &amp; Edukatif</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pixel book illustration -->
+      <div class="about-visual">
+        <svg width="260" height="260" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="image-rendering:pixelated">
+          <rect x="6"  y="8"  width="52" height="44" fill="#1C1C36"/>
+          <rect x="8"  y="10" width="48" height="40" fill="#2A1A6E"/>
+          <rect x="6"  y="8"  width="6"  height="44" fill="#4A1AAA"/>
+          <rect x="7"  y="9"  width="4"  height="42" fill="#7B2FFF"/>
+          <rect x="54" y="10" width="4"  height="40" fill="#F0EEF8"/>
+          <rect x="55" y="11" width="2"  height="38" fill="#DEDCF0"/>
+          <rect x="16" y="14" width="2"  height="2"  fill="#FFD700"/>
+          <rect x="22" y="12" width="2"  height="2"  fill="#00F5D4"/>
+          <rect x="30" y="16" width="2"  height="2"  fill="#FF6B9D"/>
+          <rect x="40" y="13" width="2"  height="2"  fill="#7B2FFF"/>
+          <rect x="46" y="15" width="2"  height="2"  fill="#FFD700"/>
+          <rect x="14" y="20" width="36" height="3"  fill="#7B2FFF"/>
+          <rect x="16" y="25" width="28" height="2"  fill="#00F5D4"/>
+          <rect x="27" y="30" width="10" height="12" fill="#7B2FFF"/>
+          <rect x="28" y="28" width="8"  height="5"  fill="#FFCBA4"/>
+          <rect x="29" y="29" width="2"  height="1"  fill="#1A0A12"/>
+          <rect x="33" y="29" width="2"  height="1"  fill="#1A0A12"/>
+          <rect x="14" y="36" width="16" height="1"  fill="#2A1A6E"/>
+          <rect x="14" y="38" width="22" height="1"  fill="#2A1A6E"/>
+          <rect x="14" y="40" width="18" height="1"  fill="#2A1A6E"/>
+          <rect x="8"  y="48" width="48" height="2"  fill="#1C1C36"/>
+          <rect x="8"  y="50" width="48" height="1"  fill="#0A0A1A"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     CHARACTERS
+     ============================================= -->
+<section class="sec" id="characters">
+  <div class="inner">
+    <div class="sec-center">
+      <span class="eyebrow">// KARAKTER CERITA</span>
+      <h2 class="sec-title">Temui Para Karakter</h2>
+      <p>Anak-anak akan berteman dengan 4 karakter unik, masing-masing dengan mimpi dan kepribadian berbeda.</p>
+    </div>
+
+    <div class="char-cards">
+
+      <!-- Alya -->
+      <div class="char-card alya">
+        <svg class="char-sprite" width="72" height="90" viewBox="0 0 16 20" xmlns="http://www.w3.org/2000/svg" style="image-rendering:pixelated">
+          <rect x="4" y="0" width="8" height="1" fill="#FF6B9D"/>
+          <rect x="3" y="1" width="10" height="3" fill="#FF6B9D"/>
+          <rect x="3" y="3" width="10" height="6" fill="#FFCBA4"/>
+          <rect x="4" y="4" width="2" height="2" fill="#1A0A12"/>
+          <rect x="10" y="4" width="2" height="2" fill="#1A0A12"/>
+          <rect x="5" y="7" width="6" height="1" fill="#CC3366"/>
+          <rect x="6" y="8" width="4" height="1" fill="#FFCBA4"/>
+          <rect x="2" y="9" width="12" height="7" fill="#FFFFFF"/>
+          <rect x="1" y="10" width="2" height="5" fill="#FFFFFF"/>
+          <rect x="13" y="10" width="2" height="5" fill="#FFFFFF"/>
+          <rect x="7" y="10" width="2" height="4" fill="#FF3355"/>
+          <rect x="6" y="11" width="4" height="2" fill="#FF3355"/>
+          <rect x="4" y="16" width="3" height="3" fill="#E8558A"/>
+          <rect x="9" y="16" width="3" height="3" fill="#E8558A"/>
+          <rect x="3" y="19" width="4" height="1" fill="#1A0A12"/>
+          <rect x="9" y="19" width="4" height="1" fill="#1A0A12"/>
+        </svg>
+        <div class="char-name">Alya</div>
+        <p class="char-desc">Suka membantu orang yang sedang kesulitan atau sakit. Selalu ada untuk teman-temannya.</p>
+        <span class="char-tag">♥ KESEHATAN</span>
+      </div>
+
+      <!-- Bima -->
+      <div class="char-card bima">
+        <svg class="char-sprite" width="72" height="90" viewBox="0 0 16 20" xmlns="http://www.w3.org/2000/svg" style="image-rendering:pixelated">
+          <rect x="3" y="0" width="10" height="4" fill="#2D1B5C"/>
+          <rect x="2" y="1" width="2" height="3" fill="#2D1B5C"/>
+          <rect x="3" y="3" width="10" height="6" fill="#FFCBA4"/>
+          <rect x="4" y="4" width="3" height="1" fill="#2D1B5C"/>
+          <rect x="4" y="6" width="3" height="1" fill="#2D1B5C"/>
+          <rect x="4" y="4" width="1" height="3" fill="#2D1B5C"/>
+          <rect x="6" y="4" width="1" height="3" fill="#2D1B5C"/>
+          <rect x="9" y="4" width="3" height="1" fill="#2D1B5C"/>
+          <rect x="9" y="6" width="3" height="1" fill="#2D1B5C"/>
+          <rect x="9" y="4" width="1" height="3" fill="#2D1B5C"/>
+          <rect x="11" y="4" width="1" height="3" fill="#2D1B5C"/>
+          <rect x="7" y="5" width="2" height="1" fill="#2D1B5C"/>
+          <rect x="5" y="5" width="1" height="1" fill="#1A0A12"/>
+          <rect x="10" y="5" width="1" height="1" fill="#1A0A12"/>
+          <rect x="6" y="7" width="4" height="1" fill="#CC7744"/>
+          <rect x="6" y="8" width="4" height="1" fill="#FFCBA4"/>
+          <rect x="3" y="9" width="10" height="7" fill="#7B2FFF"/>
+          <rect x="2" y="10" width="2" height="5" fill="#7B2FFF"/>
+          <rect x="12" y="10" width="2" height="5" fill="#7B2FFF"/>
+          <rect x="6" y="11" width="4" height="3" fill="#4A1AAA"/>
+          <rect x="4" y="16" width="3" height="3" fill="#1E0C3A"/>
+          <rect x="9" y="16" width="3" height="3" fill="#1E0C3A"/>
+          <rect x="3" y="19" width="4" height="1" fill="#1A0A12"/>
+          <rect x="9" y="19" width="4" height="1" fill="#1A0A12"/>
+        </svg>
+        <div class="char-name">Bima</div>
+        <p class="char-desc">Senang memecahkan teka-teki dan mencari solusi dari masalah yang paling rumit sekalipun.</p>
+        <span class="char-tag">◈ LOGIKA</span>
+      </div>
+
+      <!-- Nara -->
+      <div class="char-card nara">
+        <svg class="char-sprite" width="72" height="90" viewBox="0 0 16 20" xmlns="http://www.w3.org/2000/svg" style="image-rendering:pixelated">
+          <rect x="4" y="0" width="8" height="2" fill="#E67E00"/>
+          <rect x="3" y="0" width="10" height="5" fill="#FFD700"/>
+          <rect x="2" y="4" width="2" height="8" fill="#FFD700"/>
+          <rect x="12" y="4" width="2" height="8" fill="#FFD700"/>
+          <rect x="3" y="2" width="10" height="7" fill="#FFCBA4"/>
+          <rect x="5" y="4" width="2" height="2" fill="#1A0A12"/>
+          <rect x="9" y="4" width="2" height="2" fill="#1A0A12"/>
+          <rect x="5" y="7" width="6" height="1" fill="#CC7744"/>
+          <rect x="6" y="8" width="4" height="1" fill="#FFCBA4"/>
+          <rect x="3" y="9" width="10" height="7" fill="#FFFFFF"/>
+          <rect x="2" y="10" width="2" height="5" fill="#FFD700"/>
+          <rect x="12" y="10" width="2" height="5" fill="#FFD700"/>
+          <rect x="5" y="10" width="2" height="2" fill="#FF6B9D"/>
+          <rect x="9" y="12" width="2" height="2" fill="#7B2FFF"/>
+          <rect x="7" y="14" width="2" height="1" fill="#00F5D4"/>
+          <rect x="4" y="16" width="3" height="3" fill="#8B6914"/>
+          <rect x="9" y="16" width="3" height="3" fill="#8B6914"/>
+          <rect x="3" y="19" width="4" height="1" fill="#1A0A12"/>
+          <rect x="9" y="19" width="4" height="1" fill="#1A0A12"/>
+        </svg>
+        <div class="char-name">Nara</div>
+        <p class="char-desc">Jiwa seni yang tinggi. Selalu menuangkan ide dan imajinasi lewat gambar dan kreasi unik.</p>
+        <span class="char-tag">✦ SENI &amp; DESAIN</span>
+      </div>
+
+      <!-- Raka -->
+      <div class="char-card raka">
+        <svg class="char-sprite" width="72" height="90" viewBox="0 0 16 20" xmlns="http://www.w3.org/2000/svg" style="image-rendering:pixelated">
+          <rect x="4" y="0" width="8" height="3" fill="#003355"/>
+          <rect x="3" y="1" width="1" height="3" fill="#003355"/>
+          <rect x="12" y="1" width="1" height="3" fill="#003355"/>
+          <rect x="3" y="3" width="10" height="6" fill="#FFCBA4"/>
+          <rect x="5" y="4" width="2" height="2" fill="#00F5D4"/>
+          <rect x="9" y="4" width="2" height="2" fill="#00F5D4"/>
+          <rect x="5" y="4" width="1" height="1" fill="#009E88"/>
+          <rect x="9" y="4" width="1" height="1" fill="#009E88"/>
+          <rect x="6" y="7" width="4" height="1" fill="#CC7744"/>
+          <rect x="6" y="8" width="4" height="1" fill="#FFCBA4"/>
+          <rect x="3" y="9" width="10" height="7" fill="#006688"/>
+          <rect x="2" y="10" width="2" height="5" fill="#006688"/>
+          <rect x="12" y="10" width="2" height="5" fill="#006688"/>
+          <rect x="5" y="10" width="6" height="1" fill="#00F5D4"/>
+          <rect x="5" y="12" width="2" height="1" fill="#00F5D4"/>
+          <rect x="9" y="12" width="2" height="1" fill="#00F5D4"/>
+          <rect x="7" y="11" width="2" height="3" fill="#00F5D4"/>
+          <rect x="4" y="16" width="3" height="3" fill="#004455"/>
+          <rect x="9" y="16" width="3" height="3" fill="#004455"/>
+          <rect x="3" y="19" width="4" height="1" fill="#00F5D4"/>
+          <rect x="9" y="19" width="4" height="1" fill="#00F5D4"/>
+        </svg>
+        <div class="char-name">Raka</div>
+        <p class="char-desc">Hobi membongkar dan memperbaiki barang elektronik. Penasaran dengan cara kerja teknologi.</p>
+        <span class="char-tag">⚙ TEKNOLOGI</span>
+      </div>
+
+    </div><!-- /.char-cards -->
+
+    <!-- Mini demo -->
+    <div class="demo-box">
+      <span class="demo-label">▶ COBA MINI DEMO</span>
+      <p class="demo-q">Temanmu kesulitan mengerjakan soal matematika sebelum ujian. Apa yang kamu lakukan?</p>
+      <div class="demo-opts">
+        <button class="demo-opt" onclick="pickDemo(this, 'empati')">A. Langsung duduk di sampingnya dan bantu jelaskan pelan-pelan</button>
+        <button class="demo-opt" onclick="pickDemo(this, 'logika')">B. Buatkan rangkuman dan metode cepat untuk menyelesaikannya</button>
+        <button class="demo-opt" onclick="pickDemo(this, 'kreatif')">C. Bikin cara belajar yang seru supaya tidak membosankan</button>
+        <button class="demo-opt" onclick="pickDemo(this, 'teknis')">D. Cari referensi dan tools online yang bisa membantu</button>
+      </div>
+      <div class="demo-result" id="demo-result">
+        <p id="demo-result-text"></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =============================================
+     HOW IT WORKS
+     ============================================= -->
+<section class="sec sec-dark" id="how">
+  <div class="inner">
+    <div class="sec-center">
+      <span class="eyebrow">// CARA KERJA</span>
+      <h2 class="sec-title">Tiga Langkah Menuju Penemuan Diri</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">01</span>
+        <span class="step-icon">📖</span>
+        <p class="step-title">Baca Cerita Interaktif</p>
+        <p class="step-desc">Ikuti petualangan Alya, Bima, Nara, dan Raka dalam dunia buku digital 3D yang imersif dan seru.</p>
+      </div>
+      <div class="step-arrow">▶▶</div>
+      <div class="step">
+        <span class="step-num">02</span>
+        <span class="step-icon">🎯</span>
+        <p class="step-title">Buat Pilihan di Setiap Bab</p>
+        <p class="step-desc">Di setiap persimpangan cerita, pilih tindakan yang paling mencerminkan kepribadian dan minatmu.</p>
+      </div>
+      <div class="step-arrow">▶▶</div>
+      <div class="step">
+        <span class="step-num">03</span>
+        <span class="step-icon">✨</span>
+        <p class="step-title">Temukan Potensi &amp; Jurusanmu</p>
+        <p class="step-desc">AI kami menganalisis semua pilihanmu dan menghasilkan rekomendasi bidang studi yang paling cocok.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     FEATURES
+     ============================================= -->
+<section class="sec" id="features">
+  <div class="inner">
+    <div class="sec-center">
+      <span class="eyebrow">// KEUNGGULAN</span>
+      <h2 class="sec-title">Mengapa FutureBridge Berbeda?</h2>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card">
+        <span class="feat-icon">📚</span>
+        <p class="feat-title">Literasi + Teknologi</p>
+        <p class="feat-desc">Menggabungkan pengalaman membaca buku cerita dengan kecerdasan buatan. Anak-anak belajar tanpa sadar mereka sedang dievaluasi.</p>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">🤖</span>
+        <p class="feat-title">AI Career Discovery</p>
+        <p class="feat-desc">Sistem AI kami menganalisis pola pilihan selama cerita untuk menghasilkan profil minat yang akurat dan rekomendasi jurusan yang personal.</p>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">💡</span>
+        <p class="feat-title">Nilai Sosial &amp; Karakter</p>
+        <p class="feat-desc">Setiap pilihan cerita juga mengungkap nilai-nilai sosial anak: empati, kepemimpinan, kerja sama, dan tanggung jawab terhadap sesama.</p>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">🎮</span>
+        <p class="feat-title">Interaktif &amp; Imersif</p>
+        <p class="feat-desc">Bukan kuesioner membosankan. Pengalaman seperti bermain game — dengan pilihan yang benar-benar mengubah arah cerita dan hasilnya.</p>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">🌟</span>
+        <p class="feat-title">Cocok Semua Usia</p>
+        <p class="feat-desc">Dirancang untuk siswa SMP dan SMA yang bingung memilih jurusan, dengan bahasa yang ramah dan cerita yang relatable.</p>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">📊</span>
+        <p class="feat-title">Laporan yang Bermakna</p>
+        <p class="feat-desc">Hasil bukan hanya "kamu cocok di bidang X" — tapi penjelasan lengkap mengapa, berdasarkan pola pilihan nyata yang dibuat selama cerita.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     PITCH / VISION
+     ============================================= -->
+<section class="sec sec-dark" style="position:relative; overflow:hidden;">
+  <div class="pitch-glow"></div>
+  <div class="pitch-inner">
+    <span class="pitch-eyebrow">// VISI KAMI</span>
+    <div class="pitch-quote">
+      "Kami mengembangkan<br>
+      <span class="v">Interactive Storybook berbasis AI</span><br>
+      yang membantu anak-anak mengenali<br>
+      <span class="g">minat</span>, <span class="p">potensi</span>, dan <span class="c">cita-cita</span> mereka<br>
+      melalui pengalaman membaca<br>
+      yang interaktif dan menyenangkan."
+    </div>
+    <div class="pitch-tags">
+      <span class="pitch-tag">AI-POWERED</span>
+      <span class="pitch-tag">LITERASI DIGITAL</span>
+      <span class="pitch-tag">CAREER DISCOVERY</span>
+      <span class="pitch-tag">NILAI SOSIAL</span>
+      <span class="pitch-tag">INTERAKTIF</span>
+      <span class="pitch-tag">EDUKATIF</span>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     CTA
+     ============================================= -->
+<section class="sec cta-sec">
+  <div class="inner">
+    <h2 class="cta-title">Siap Memulai Petualangan?</h2>
+    <p class="cta-sub">Buka buku, buat pilihan, temukan siapa dirimu.</p>
+    <div style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap;">
+      <button class="btn-primary">▶ MULAI MEMBACA SEKARANG</button>
+      <button class="btn-outline">◈ PELAJARI LEBIH LANJUT</button>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     FOOTER
+     ============================================= -->
+<footer>
+  <div class="footer-logo">Future<span style="color:var(--violet)">Bridge</span> Story</div>
+  <p class="footer-text">© 2025 FutureBridge Story Edition — Portofolio Showcase</p>
+  <ul class="footer-links">
+    <li><a href="#">GitHub</a></li>
+    <li><a href="#">Demo</a></li>
+    <li><a href="#">Kontak</a></li>
+  </ul>
+</footer>
+
+<!-- Script -->
+<script src="js/main.js"></script>
+
+</body>
+</html>

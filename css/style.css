@@ -1,0 +1,511 @@
+/* =============================================
+   FutureBridge Story Edition — Stylesheet
+   ============================================= */
+
+/* === DESIGN TOKENS === */
+:root {
+  --bg:       #0A0A1A;
+  --surface:  #10101F;
+  --border:   #1C1C36;
+  --violet:   #7B2FFF;
+  --violet-d: #4A1AAA;
+  --cyan:     #00F5D4;
+  --gold:     #FFD700;
+  --pink:     #FF6B9D;
+  --text:     #F0EEF8;
+  --muted:    #6A6A8A;
+  --red:      #FF4757;
+}
+
+/* === RESET === */
+*,*::before,*::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+a { text-decoration: none; }
+
+/* === BASE === */
+body {
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Pixel grid background */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image:
+    linear-gradient(rgba(123,47,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(123,47,255,0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* CRT scanlines overlay */
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0,0,0,0.04) 3px,
+    rgba(0,0,0,0.04) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* =============================================
+   NAV
+   ============================================= */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 48px;
+  background: rgba(10,10,26,0.95);
+  border-bottom: 2px solid var(--border);
+  backdrop-filter: blur(12px);
+  transition: border-bottom-color 0.3s;
+}
+
+.logo {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  color: var(--cyan);
+  display: flex; align-items: center; gap: 10px;
+  text-shadow: 0 0 12px rgba(0,245,212,0.5);
+}
+.logo em { color: var(--violet); font-style: normal; }
+
+.logo-dot {
+  width: 8px; height: 8px;
+  background: var(--violet);
+  display: inline-block;
+  box-shadow: 0 0 8px var(--violet);
+  animation: blink 1.2s step-end infinite;
+}
+
+.nav-links { display: flex; list-style: none; gap: 36px; }
+.nav-links a {
+  font-size: 19px; color: var(--muted);
+  letter-spacing: 1px; transition: color 0.15s;
+}
+.nav-links a:hover { color: var(--cyan); }
+
+.nav-btn {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px; padding: 10px 20px;
+  background: var(--violet); color: var(--text);
+  border: none; cursor: pointer; letter-spacing: 0.5px;
+  box-shadow: 3px 3px 0 var(--violet-d);
+  transition: all 0.07s;
+}
+.nav-btn:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--violet-d); }
+
+/* =============================================
+   HERO
+   ============================================= */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 130px 40px 80px;
+  position: relative; z-index: 1;
+  overflow: hidden;
+}
+
+#star-canvas { position: absolute; inset: 0; pointer-events: none; }
+
+.hero-badge {
+  display: inline-block;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px; color: var(--gold);
+  border: 2px solid var(--gold);
+  padding: 7px 18px; letter-spacing: 3px;
+  margin-bottom: 36px;
+  animation: blink 2s step-end infinite;
+}
+
+.hero-eyebrow {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px; color: var(--muted);
+  letter-spacing: 2px; margin-bottom: 12px;
+}
+
+.hero-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(26px, 5vw, 60px);
+  line-height: 1.4; margin-bottom: 10px;
+}
+.hero-title .v { color: var(--violet); }
+.hero-title .c { color: var(--cyan); }
+
+.hero-edition {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(9px, 1.8vw, 14px);
+  color: var(--gold); letter-spacing: 8px;
+  margin-bottom: 36px;
+}
+
+.hero-typing {
+  font-size: 22px; color: var(--muted);
+  max-width: 580px; line-height: 1.7;
+  margin-bottom: 52px; min-height: 60px;
+}
+.hero-typing strong { color: var(--text); }
+
+.cursor {
+  display: inline-block;
+  width: 10px; height: 20px;
+  background: var(--cyan);
+  vertical-align: middle;
+  animation: blink 0.8s step-end infinite;
+  margin-left: 2px;
+}
+
+.hero-btns {
+  display: flex; gap: 20px;
+  justify-content: center; flex-wrap: wrap;
+  margin-bottom: 72px;
+}
+
+/* Hero pixel characters */
+.hero-chars { display: flex; gap: 36px; justify-content: center; align-items: flex-end; }
+.hero-char-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.hero-char-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px; letter-spacing: 1px;
+}
+.hero-char-wrap:nth-child(1) svg { animation: cfloat 3s   ease-in-out infinite; }
+.hero-char-wrap:nth-child(2) svg { animation: cfloat 4s   ease-in-out infinite 0.6s; }
+.hero-char-wrap:nth-child(3) svg { animation: cfloat 3.5s ease-in-out infinite 1s; }
+.hero-char-wrap:nth-child(4) svg { animation: cfloat 4.5s ease-in-out infinite 0.3s; }
+
+/* =============================================
+   BUTTONS
+   ============================================= */
+.btn-primary {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px; padding: 18px 32px;
+  background: var(--violet); color: var(--text);
+  border: none; cursor: pointer; display: inline-block;
+  box-shadow: 4px 4px 0 var(--violet-d), 8px 8px 0 rgba(123,47,255,0.15);
+  transition: all 0.07s; letter-spacing: 0.5px;
+}
+.btn-primary:hover  { transform: translate(-3px,-3px); box-shadow: 7px 7px 0 var(--violet-d), 12px 12px 0 rgba(123,47,255,0.12); }
+.btn-primary:active { transform: translate(1px,1px);   box-shadow: 3px 3px 0 var(--violet-d); }
+
+.btn-outline {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px; padding: 18px 32px;
+  background: transparent; color: var(--cyan);
+  border: 2px solid var(--cyan); cursor: pointer; display: inline-block;
+  transition: all 0.07s; letter-spacing: 0.5px;
+}
+.btn-outline:hover { background: rgba(0,245,212,0.07); box-shadow: 4px 4px 0 rgba(0,245,212,0.2); transform: translate(-2px,-2px); }
+
+/* =============================================
+   SECTIONS — BASE
+   ============================================= */
+.sec { padding: 96px 48px; position: relative; z-index: 1; }
+.sec-dark {
+  background: var(--surface);
+  border-top: 2px solid var(--border);
+  border-bottom: 2px solid var(--border);
+}
+.inner { max-width: 1140px; margin: 0 auto; }
+
+.eyebrow {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px; color: var(--violet);
+  letter-spacing: 3px; display: block; margin-bottom: 18px;
+}
+.sec-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(13px, 2vw, 18px);
+  line-height: 1.85; color: var(--text);
+}
+.sec-center { text-align: center; margin-bottom: 56px; }
+.sec-center p { font-size: 20px; color: var(--muted); margin-top: 12px; }
+
+/* =============================================
+   ABOUT
+   ============================================= */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 80px; align-items: center;
+}
+.about-text p { font-size: 20px; color: var(--muted); line-height: 1.85; margin-bottom: 16px; }
+.about-text p strong { color: var(--text); }
+.about-text .sec-title { margin-bottom: 24px; }
+
+.stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 32px; }
+.stat-card {
+  background: var(--bg);
+  border: 2px solid var(--border);
+  padding: 20px;
+}
+.stat-num {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 18px; color: var(--cyan);
+  display: block; margin-bottom: 6px;
+}
+.stat-label { font-size: 16px; color: var(--muted); }
+
+.about-visual { display: flex; justify-content: center; align-items: center; }
+
+/* =============================================
+   CHARACTERS
+   ============================================= */
+.char-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.char-card {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  padding: 32px 18px; text-align: center;
+  cursor: pointer;
+  transition: transform 0.12s, border-color 0.12s, box-shadow 0.12s;
+  position: relative; overflow: hidden;
+}
+.char-card::before {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 3px; opacity: 0;
+  transition: opacity 0.2s;
+}
+.char-card:hover::before { opacity: 1; }
+.char-card:hover { transform: translateY(-8px); }
+
+/* Character color themes */
+.alya::before  { background: var(--pink); }
+.bima::before  { background: var(--violet); }
+.nara::before  { background: var(--gold); }
+.raka::before  { background: var(--cyan); }
+
+.alya:hover { border-color: var(--pink);   box-shadow: 0 10px 0 rgba(255,107,157,0.25); }
+.bima:hover { border-color: var(--violet); box-shadow: 0 10px 0 rgba(123,47,255,0.25);  }
+.nara:hover { border-color: var(--gold);   box-shadow: 0 10px 0 rgba(255,215,0,0.25);   }
+.raka:hover { border-color: var(--cyan);   box-shadow: 0 10px 0 rgba(0,245,212,0.25);   }
+
+.char-sprite { margin: 0 auto 20px; image-rendering: pixelated; display: block; }
+.char-name {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 11px; margin-bottom: 12px;
+}
+.alya .char-name { color: var(--pink); }
+.bima .char-name { color: var(--violet); }
+.nara .char-name { color: var(--gold); }
+.raka .char-name { color: var(--cyan); }
+
+.char-desc { font-size: 18px; color: var(--muted); line-height: 1.65; margin-bottom: 16px; }
+.char-tag {
+  display: inline-block;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px; padding: 5px 10px;
+  border: 1px solid currentColor;
+}
+.alya .char-tag { color: var(--pink);   background: rgba(255,107,157,0.08); }
+.bima .char-tag { color: var(--violet); background: rgba(123,47,255,0.08);  }
+.nara .char-tag { color: var(--gold);   background: rgba(255,215,0,0.08);   }
+.raka .char-tag { color: var(--cyan);   background: rgba(0,245,212,0.08);   }
+
+/* =============================================
+   DEMO QUESTION
+   ============================================= */
+.demo-box {
+  max-width: 700px; margin: 56px auto 0;
+  border: 2px solid var(--violet);
+  padding: 36px 32px;
+  background: rgba(123,47,255,0.05);
+  text-align: left;
+}
+.demo-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px; color: var(--violet);
+  letter-spacing: 2px; display: block; margin-bottom: 14px;
+}
+.demo-q {
+  font-size: 21px; color: var(--text); line-height: 1.7; margin-bottom: 20px;
+}
+.demo-opts { display: flex; flex-direction: column; gap: 10px; }
+.demo-opt {
+  font-family: 'VT323', monospace;
+  font-size: 19px; color: var(--muted);
+  border: 2px solid var(--border);
+  padding: 12px 16px; cursor: pointer;
+  transition: all 0.1s; text-align: left;
+  background: transparent; display: block; width: 100%;
+}
+.demo-opt:hover    { border-color: var(--violet); color: var(--text); background: rgba(123,47,255,0.1); }
+.demo-opt.selected { border-color: var(--cyan);   color: var(--cyan); background: rgba(0,245,212,0.07); }
+
+.demo-result {
+  margin-top: 20px; padding: 16px;
+  border: 2px solid var(--cyan);
+  background: rgba(0,245,212,0.05);
+  display: none;
+}
+.demo-result.show { display: block; animation: fadeIn 0.3s ease; }
+.demo-result p { font-size: 19px; color: var(--cyan); }
+
+/* =============================================
+   HOW IT WORKS
+   ============================================= */
+.steps {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr 40px 1fr;
+  align-items: stretch; margin-top: 56px;
+}
+.step {
+  background: var(--bg);
+  border: 2px solid var(--border);
+  padding: 40px 24px; text-align: center;
+  transition: border-color 0.15s;
+}
+.step:hover { border-color: var(--violet); }
+
+.step-num {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 30px; line-height: 1;
+  display: block; margin-bottom: 14px;
+}
+.step:nth-child(1) .step-num { color: var(--pink); }
+.step:nth-child(3) .step-num { color: var(--gold); }
+.step:nth-child(5) .step-num { color: var(--cyan); }
+
+.step-icon  { font-size: 28px; display: block; margin-bottom: 14px; }
+.step-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px; color: var(--text); line-height: 2; margin-bottom: 10px;
+}
+.step-desc  { font-size: 18px; color: var(--muted); line-height: 1.7; }
+
+.step-arrow {
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 16px; color: var(--violet);
+  animation: blink 1.2s step-end infinite;
+}
+
+/* =============================================
+   FEATURES
+   ============================================= */
+.feat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px; margin-top: 56px;
+}
+.feat-card {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  padding: 34px 26px;
+  transition: all 0.12s;
+}
+.feat-card:hover { border-color: var(--violet); transform: translateY(-4px); }
+.feat-icon  { font-size: 32px; display: block; margin-bottom: 18px; }
+.feat-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px; color: var(--text); line-height: 2; margin-bottom: 12px;
+}
+.feat-desc  { font-size: 18px; color: var(--muted); line-height: 1.75; }
+
+/* =============================================
+   PITCH / VISION
+   ============================================= */
+.pitch-glow {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 50%, rgba(123,47,255,0.07), transparent),
+    radial-gradient(ellipse 60% 50% at 80% 50%, rgba(0,245,212,0.04), transparent);
+  pointer-events: none;
+}
+.pitch-inner { max-width: 780px; margin: 0 auto; text-align: center; }
+.pitch-eyebrow {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px; color: var(--muted);
+  letter-spacing: 3px; display: block; margin-bottom: 32px;
+}
+.pitch-quote {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(10px, 1.5vw, 14px);
+  line-height: 2.6; color: var(--text); margin-bottom: 48px;
+}
+.pitch-quote .v { color: var(--violet); }
+.pitch-quote .c { color: var(--cyan); }
+.pitch-quote .g { color: var(--gold); }
+.pitch-quote .p { color: var(--pink); }
+
+.pitch-tags { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.pitch-tag {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px; padding: 8px 16px;
+  border: 2px solid var(--border); color: var(--muted);
+  transition: all 0.15s;
+}
+.pitch-tag:hover { border-color: var(--violet); color: var(--violet); }
+
+/* =============================================
+   CTA
+   ============================================= */
+.cta-sec { text-align: center; }
+.cta-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(13px, 2.2vw, 20px);
+  line-height: 2; margin-bottom: 16px;
+}
+.cta-sub { font-size: 21px; color: var(--muted); margin-bottom: 52px; }
+
+/* =============================================
+   FOOTER
+   ============================================= */
+footer {
+  background: var(--surface);
+  border-top: 2px solid var(--border);
+  padding: 36px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+  position: relative; z-index: 1;
+}
+.footer-logo {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px; color: var(--cyan);
+}
+.footer-text  { font-size: 16px; color: var(--muted); }
+.footer-links { display: flex; gap: 24px; list-style: none; }
+.footer-links a { font-size: 17px; color: var(--muted); transition: color 0.15s; }
+.footer-links a:hover { color: var(--cyan); }
+
+/* =============================================
+   ANIMATIONS
+   ============================================= */
+@keyframes blink   { 50% { opacity: 0; } }
+@keyframes cfloat  { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+@keyframes fadeIn  { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 900px) {
+  nav { padding: 14px 20px; }
+  .nav-links { display: none; }
+  .sec { padding: 64px 20px; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-visual { display: none; }
+  .char-cards { grid-template-columns: repeat(2, 1fr); }
+  .steps { grid-template-columns: 1fr; }
+  .step-arrow { transform: rotate(90deg); }
+  .feat-grid { grid-template-columns: 1fr; }
+  .hero-chars { gap: 16px; }
+  .hero-chars svg { width: 48px !important; height: 60px !important; }
+  footer { flex-direction: column; text-align: center; }
+}
