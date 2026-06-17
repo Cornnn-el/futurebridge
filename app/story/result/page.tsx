@@ -208,6 +208,21 @@ const sprites: Record<CharKey, (size: number) => React.ReactNode> = {
 ───────────────────────────────────────── */
 export default function ResultPage() {
     const router = useRouter()
+
+    // ── Share functions ──
+    const shareWhatsApp = (name: string, title: string) => {
+        const text = `Aku dapat karakter ${name} — ${title} di FutureBridge Story Edition! Temukan potensimu juga di: ${window.location.origin}`
+        window.open(`https://wa.me/?text=${encodeURIComponent(text)}`)
+    }
+    const shareTwitter = (name: string, title: string) => {
+        const text = `Aku dapat karakter ${name} — ${title} di FutureBridge Story Edition! Temukan potensimu juga 🚀`
+        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.origin)}`)
+    }
+    const copyLink = () => {
+        navigator.clipboard.writeText(window.location.origin)
+        alert('Link berhasil dicopy!')
+    }
+
     const [result, setResult] = useState<ResultData | null>(null)
     const [phase, setPhase] = useState<0 | 1 | 2>(0)
     const [scanPct, setScanPct] = useState(0)
@@ -742,9 +757,11 @@ export default function ResultPage() {
                                 <button
                                     onClick={() => {
                                         sessionStorage.removeItem('futurebridge-result')
+                                        localStorage.removeItem('fb-answers')
+                                        localStorage.removeItem('fb-index')
                                         router.push('/story/test')
                                     }}
-                                    className="btn-outline"
+                                    className="btn-outline cursor-target"
                                     style={{
                                         fontFamily: "'Press Start 2P', monospace",
                                         fontSize: '7px', padding: '14px 24px',
@@ -754,7 +771,7 @@ export default function ResultPage() {
                                 </button>
                                 <button
                                     onClick={() => router.push('/')}
-                                    className="btn-primary"
+                                    className="btn-primary cursor-target"
                                     style={{
                                         fontFamily: "'Press Start 2P', monospace",
                                         fontSize: '7px', padding: '14px 24px',
@@ -766,14 +783,29 @@ export default function ResultPage() {
                                 </button>
                             </div>
 
-                            {/* Share hint */}
-                            <div style={{
-                                textAlign: 'center',
-                                fontFamily: "'Press Start 2P', monospace",
-                                fontSize: '6px', color: 'var(--border)',
-                                letterSpacing: '1px',
-                            }}>
-                // screenshot hasilmu dan share ke teman-teman!
+                            {/* Share buttons */}
+                            <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                                <button
+                                    onClick={() => shareWhatsApp(data.name, data.title)}
+                                    className="btn-outline cursor-target"
+                                    style={{ fontFamily: "'Press Start 2P', monospace", fontSize: '6px', padding: '10px 16px', borderColor: '#25D366', color: '#25D366' }}
+                                >
+                                    ✦ WHATSAPP
+                                </button>
+                                <button
+                                    onClick={() => shareTwitter(data.name, data.title)}
+                                    className="btn-outline cursor-target"
+                                    style={{ fontFamily: "'Press Start 2P', monospace", fontSize: '6px', padding: '10px 16px', borderColor: '#1DA1F2', color: '#1DA1F2' }}
+                                >
+                                    ✦ TWITTER
+                                </button>
+                                <button
+                                    onClick={copyLink}
+                                    className="btn-outline cursor-target"
+                                    style={{ fontFamily: "'Press Start 2P', monospace", fontSize: '6px', padding: '10px 16px' }}
+                                >
+                                    ◈ COPY LINK
+                                </button>
                             </div>
                         </div>
                     )}

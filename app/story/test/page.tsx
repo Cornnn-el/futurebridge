@@ -260,14 +260,17 @@ export default function TestPage() {
     const [currentIndex, setCurrentIndex] = useState(0)
     const [selected, setSelected] = useState<string | null>(null)
     const [answers, setAnswers] = useState<Record<string, string>>({})
+    const [hydrated, setHydrated] = useState(false)
     const [fadeIn, setFadeIn] = useState(true)
     const [showTransition, setShowTransition] = useState(false)
 
-    const soal = allSoal[currentIndex]
-    const char = getChar(soal)
-    const cfg = charConfig[char]
-    const narasi = cfg.narasi[soal.kategori] ?? cfg.narasi.default
-    const progress = (currentIndex / TOTAL) * 100
+    useEffect(() => {
+        const savedIndex = parseInt(localStorage.getItem('fb-index') || '0')
+        const savedAnswers = localStorage.getItem('fb-answers')
+        if (savedIndex > 0) setCurrentIndex(savedIndex)
+        if (savedAnswers) setAnswers(JSON.parse(savedAnswers))
+        setHydrated(true)
+    }, [])
 
     /* ── Keyboard support ── */
     useEffect(() => {
@@ -288,19 +291,31 @@ export default function TestPage() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selected, currentIndex])
 
+    const soal = allSoal[currentIndex]
+    const char = getChar(soal)
+    const cfg = charConfig[char]
+    const narasi = cfg.narasi[soal.kategori] ?? cfg.narasi.default
+    const progress = (currentIndex / TOTAL) * 100
+
+    if (!hydrated) return null
+
     /* ── Next handler with fade ── */
     function handleNext() {
         if (!selected) return
         const newAnswers = { ...answers, [soal.id]: selected }
         setAnswers(newAnswers)
 
-        // Soal terakhir → ke result
         if (currentIndex === TOTAL - 1) {
             const result = calculateScores(newAnswers)
             sessionStorage.setItem('futurebridge-result', JSON.stringify(result))
+            localStorage.removeItem('fb-answers')
+            localStorage.removeItem('fb-index')
             router.push('/story/result')
             return
         }
+
+        localStorage.setItem('fb-answers', JSON.stringify(newAnswers))
+        localStorage.setItem('fb-index', String(currentIndex + 1))
 
         // Transition banner antara minat → bakat
         const isLastMinat = currentIndex === MINAT_COUNT - 1
