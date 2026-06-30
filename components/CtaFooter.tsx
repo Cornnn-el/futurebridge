@@ -24,11 +24,6 @@ export function Footer() {
         <footer>
             <div className="footer-logo">Future<span style={{ color: 'var(--violet)' }}>Bridge</span> Story</div>
             <p className="footer-text">© 2025 FutureBridge Story Edition — Showcase</p>
-            <ul className="footer-links">
-                <li><a href="#">GitHub</a></li>
-                <li><a href="#">Demo</a></li>
-                <li><a href="#">Kontak</a></li>
-            </ul>
         </footer>
     )
 }
