@@ -3,7 +3,7 @@ export default function Pitch() {
         <section className="sec sec-dark" style={{ position: 'relative', overflow: 'hidden' }}>
             <div className="pitch-glow"></div>
             <div className="pitch-inner">
-                <span className="pitch-eyebrow">// VISI KAMI</span>
+                <span className="pitch-eyebrow">VISI KAMI</span>
                 <div className="pitch-quote">
                     &quot;Kami mengembangkan<br />
                     <span className="v">Interactive Storybook berbasis AI</span><br />

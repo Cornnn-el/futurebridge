@@ -534,7 +534,7 @@ export default function ResultPage() {
                                 fontSize: '7px', color, letterSpacing: '2px',
                                 marginBottom: '16px',
                             }}>
-                // PROFIL KEPRIBADIAN
+                                PROFIL KEPRIBADIAN
                             </div>
 
                             <p style={{
@@ -578,7 +578,7 @@ export default function ResultPage() {
                                     fontSize: '6px', color: 'var(--cyan)',
                                     letterSpacing: '2px', marginBottom: '20px',
                                 }}>
-                  // PROFIL RIASEC
+                                    PROFIL RIASEC
                                 </div>
                                 {(Object.keys(result.riasec) as RiasecKey[]).map(key => (
                                     <div key={key} style={{ marginBottom: '12px' }}>
@@ -625,7 +625,7 @@ export default function ResultPage() {
                                     fontSize: '6px', color: 'var(--gold)',
                                     letterSpacing: '2px', marginBottom: '20px',
                                 }}>
-                  // SKOR BAKAT
+                                    SKOR BAKAT
                                 </div>
                                 {([
                                     { key: 'verbal', label: 'Penalaran Verbal', c: '#FF6B9D' },
@@ -679,7 +679,7 @@ export default function ResultPage() {
                                 fontSize: '7px', color, letterSpacing: '2px',
                                 marginBottom: '20px',
                             }}>
-                // REKOMENDASI JURUSAN
+                                REKOMENDASI JURUSAN
                             </div>
 
                             <div style={{
@@ -732,7 +732,7 @@ export default function ResultPage() {
                                     fontSize: '7px', color: 'var(--muted)',
                                     letterSpacing: '2px', marginBottom: '20px',
                                 }}>
-                  // JALUR KARIR
+                                    JALUR KARIR
                                 </div>
                                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
                                     {data.karir.map(k => (

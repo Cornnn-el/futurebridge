@@ -698,7 +698,19 @@ nav {
 .step-icon {
   font-size: 28px;
   display: block;
-  margin-bottom: 14px;
+  margin-bottom: 8px;
+}
+
+.step:nth-child(1) .step-icon {
+  color: var(--violet);
+}
+
+.step:nth-child(3) .step-icon {
+  color: var(--cyan);
+}
+
+.step:nth-child(5) .step-icon {
+  color: var(--gold);
 }
 
 .step-title {
@@ -740,6 +752,7 @@ nav {
   border: 2px solid var(--border);
   padding: 34px 26px;
   transition: all 0.12s;
+  text-align: center;
 }
 
 .feat-card:hover {
@@ -750,7 +763,31 @@ nav {
 .feat-icon {
   font-size: 32px;
   display: block;
-  margin-bottom: 18px;
+  margin: 0 auto 12px;
+}
+
+.feat-card:nth-child(1) .feat-icon {
+  color: var(--cyan);
+}
+
+.feat-card:nth-child(2) .feat-icon {
+  color: var(--violet);
+}
+
+.feat-card:nth-child(3) .feat-icon {
+  color: var(--gold);
+}
+
+.feat-card:nth-child(4) .feat-icon {
+  color: var(--pink);
+}
+
+.feat-card:nth-child(5) .feat-icon {
+  color: var(--cyan);
+}
+
+.feat-card:nth-child(6) .feat-icon {
+  color: var(--violet);
 }
 
 .feat-title {

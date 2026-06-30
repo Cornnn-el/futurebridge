@@ -15,7 +15,7 @@ export default function Characters() {
         <section className="sec" id="characters">
             <div className="inner">
                 <div className="sec-center">
-                    <span className="eyebrow">// KARAKTER CERITA</span>
+                    <span className="eyebrow">KARAKTER CERITA</span>
                     <h2 className="sec-title">Temui Para Karakter</h2>
                     <p>Anak-anak akan berteman dengan 4 karakter unik, masing-masing dengan mimpi dan kepribadian berbeda.</p>
                 </div>

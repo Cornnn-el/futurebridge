@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import 'bootstrap-icons/font/bootstrap-icons.css'
 import TargetCursor from '@/components/TargetCursor'
 
 export const metadata: Metadata = {
-  title: 'FutureBridge — Story Edition',
+  title: 'FutureBridge - Story Edition',
 }
 
 export default function RootLayout({

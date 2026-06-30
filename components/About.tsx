@@ -4,10 +4,10 @@ export default function About() {
             <div className="inner">
                 <div className="about-grid">
                     <div className="about-text">
-                        <span className="eyebrow">// TENTANG PROYEK</span>
+                        <span className="eyebrow">TENTANG PROYEK</span>
                         <h2 className="sec-title">Bukan Sekadar Tes Minat Biasa</h2>
                         <p>
-                            FutureBridge Story Edition adalah <strong>Interactive Storybook berbasis AI</strong>
+                            FutureBridge Story Edition adalah <strong>Interactive Storybook</strong>
                             {' '}yang membantu anak-anak mengenali minat, potensi, dan cita-cita mereka.
                         </p>
                         <p>
@@ -15,7 +15,7 @@ export default function About() {
                             <strong>membaca cerita</strong> dan membuat pilihan seperti dalam petualangan interaktif.
                         </p>
                         <p>
-                            Setiap pilihan direkam oleh sistem AI kami, lalu dianalisis untuk menghasilkan
+                            Setiap pilihan direkam oleh sistem kami, lalu dianalisis untuk menghasilkan
                             rekomendasi bidang studi yang personal.
                         </p>
                         <div className="stat-grid">
