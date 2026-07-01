@@ -15,7 +15,8 @@ type Opsi = {
     label: string
     teks: string
     benar?: boolean
-    skor: MinatSkor & BakatSkor
+    terbuka?: boolean
+    skor?: MinatSkor & BakatSkor
 }
 
 type Soal = {
@@ -28,7 +29,7 @@ type Soal = {
 
 const allSoal = [...soalMinatRaw, ...soalBakatRaw] as Soal[]
 const TOTAL = allSoal.length
-const MINAT_COUNT = soalMinatRaw.length // 40
+const MINAT_COUNT = soalMinatRaw.length
 
 /* ─────────────────────────────────────────
    CHARACTER CONFIG
@@ -106,7 +107,7 @@ function calculateScores(answers: Record<string, string>) {
         const chosen = answers[soal.id]
         if (!chosen) return
         const opsi = soal.opsi.find(o => o.label === chosen)
-        if (!opsi) return
+        if (!opsi || !opsi.skor) return
 
         if (soal.type === 'minat') {
             const s = opsi.skor as MinatSkor
@@ -260,6 +261,8 @@ export default function TestPage() {
     const [currentIndex, setCurrentIndex] = useState(0)
     const [selected, setSelected] = useState<string | null>(null)
     const [answers, setAnswers] = useState<Record<string, string>>({})
+    const [openAnswers, setOpenAnswers] = useState<Record<string, string>>({})
+    const [openText, setOpenText] = useState('')
     const [hydrated, setHydrated] = useState(false)
     const [fadeIn, setFadeIn] = useState(true)
     const [showTransition, setShowTransition] = useState(false)
@@ -267,29 +270,47 @@ export default function TestPage() {
     useEffect(() => {
         const savedIndex = parseInt(localStorage.getItem('fb-index') || '0')
         const savedAnswers = localStorage.getItem('fb-answers')
+        const savedOpenAnswers = localStorage.getItem('fb-open-answers')
         if (savedIndex > 0) setCurrentIndex(savedIndex)
         if (savedAnswers) setAnswers(JSON.parse(savedAnswers))
+        if (savedOpenAnswers) setOpenAnswers(JSON.parse(savedOpenAnswers))
         setHydrated(true)
     }, [])
 
     /* ── Keyboard support ── */
     useEffect(() => {
         function onKey(e: KeyboardEvent) {
+            // Jangan tangkep shortcut kalau user lagi ngetik di textarea/input
+            const target = e.target as HTMLElement
+            const isTyping =
+                target.tagName === 'TEXTAREA' ||
+                target.tagName === 'INPUT' ||
+                target.isContentEditable
+            if (isTyping) return
+
             // Enter → next
             if (e.key === 'Enter' && selected) {
                 handleNext()
                 return
             }
-            // A/B/C/D → pilih jawaban
-            const map: Record<string, string> = { a: 'A', b: 'B', c: 'C', d: 'D' }
-            if (map[e.key.toLowerCase()]) {
-                setSelected(map[e.key.toLowerCase()])
+            // A/B/C/D/E → pilih jawaban (E cuma ada di soal minat)
+            const map: Record<string, string> = { a: 'A', b: 'B', c: 'C', d: 'D', e: 'E' }
+            const key = map[e.key.toLowerCase()]
+            if (key && soal.opsi.some(o => o.label === key)) {
+                setSelected(key)
             }
         }
         window.addEventListener('keydown', onKey)
         return () => window.removeEventListener('keydown', onKey)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selected, currentIndex])
+
+    useEffect(() => {
+        if (!hydrated) return
+        const currentSoal = allSoal[currentIndex]
+        setOpenText(openAnswers[currentSoal.id] ?? '')
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [currentIndex, hydrated])
 
     const soal = allSoal[currentIndex]
     const char = getChar(soal)
@@ -305,16 +326,32 @@ export default function TestPage() {
         const newAnswers = { ...answers, [soal.id]: selected }
         setAnswers(newAnswers)
 
+        // Simpan teks jawaban terbuka (opsi "E") kalau ada isinya
+        const newOpenAnswers = { ...openAnswers }
+        if (openText.trim()) {
+            newOpenAnswers[soal.id] = openText.trim()
+        } else {
+            delete newOpenAnswers[soal.id]
+        }
+        setOpenAnswers(newOpenAnswers)
+
         if (currentIndex === TOTAL - 1) {
             const result = calculateScores(newAnswers)
-            sessionStorage.setItem('futurebridge-result', JSON.stringify(result))
+            const payload = {
+                ...result,
+                answers: newAnswers,       // semua jawaban pilihan (A-E) per soal.id
+                openAnswers: newOpenAnswers, // jawaban teks bebas per soal.id, buat dikirim ke Gemini
+            }
+            sessionStorage.setItem('futurebridge-result', JSON.stringify(payload))
             localStorage.removeItem('fb-answers')
+            localStorage.removeItem('fb-open-answers')
             localStorage.removeItem('fb-index')
             router.push('/story/result')
             return
         }
 
         localStorage.setItem('fb-answers', JSON.stringify(newAnswers))
+        localStorage.setItem('fb-open-answers', JSON.stringify(newOpenAnswers))
         localStorage.setItem('fb-index', String(currentIndex + 1))
 
         // Transition banner antara minat → bakat
@@ -459,7 +496,7 @@ export default function TestPage() {
                 color: 'var(--border)', letterSpacing: '1px', textAlign: 'right',
                 lineHeight: 2,
             }}>
-                <div>A B C D → PILIH</div>
+                <div>{soal.type === 'minat' ? 'A B C D E' : 'A B C D'} → PILIH</div>
                 <div>ENTER → NEXT</div>
             </div>
 
@@ -580,6 +617,30 @@ export default function TestPage() {
                             {opsi.teks}
                         </button>
                     ))}
+
+                    {/* Textarea muncul kalau opsi terbuka (E) dipilih — cuma ada di soal minat */}
+                    {soal.type === 'minat' && selected && soal.opsi.find(o => o.label === selected)?.terbuka && (
+                        <textarea
+                            value={openText}
+                            onChange={e => setOpenText(e.target.value)}
+                            placeholder="Tulis jawabanmu sendiri di sini..."
+                            className="cursor-target"
+                            rows={3}
+                            style={{
+                                width: '100%',
+                                marginTop: '4px',
+                                padding: '14px 16px',
+                                fontFamily: "'VT323', monospace",
+                                fontSize: '18px',
+                                lineHeight: 1.5,
+                                color: cfg.color,
+                                background: `${cfg.color}12`,
+                                border: `2px solid ${cfg.color}`,
+                                outline: 'none',
+                                resize: 'vertical',
+                            }}
+                        />
+                    )}
                 </div>
 
                 {/* ── Bottom nav ── */}

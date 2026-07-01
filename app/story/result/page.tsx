@@ -2,6 +2,8 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import StarCanvas from '@/components/StarCanvas'
+import { db } from '@/lib/firebase'
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 
 /* ─────────────────────────────────────────
    TYPES
@@ -14,6 +16,8 @@ interface ResultData {
     bakat: { verbal: number; numerik: number; abstrak: number; spasial: number }
     character: CharKey
     dominant: RiasecKey
+    answers?: Record<string, string>
+    openAnswers?: Record<string, string>
 }
 
 /* ─────────────────────────────────────────
@@ -229,12 +233,64 @@ export default function ResultPage() {
     const [glitchOn, setGlitchOn] = useState(false)
     const [visibleSections, setVisibleSections] = useState(0)
 
+    // ── AI Analysis (Gemini) ──
+    const [analysis, setAnalysis] = useState<string | null>(null)
+    const [analysisLoading, setAnalysisLoading] = useState(false)
+    const [analysisError, setAnalysisError] = useState<string | null>(null)
+
     /* ── Load result from sessionStorage ── */
     useEffect(() => {
         const raw = sessionStorage.getItem('futurebridge-result')
         if (!raw) { router.push('/story/test'); return }
         setResult(JSON.parse(raw))
     }, [router])
+
+    /* ── Minta analisis AI ke /api/analyze, terus simpan hasilnya ke Firestore ── */
+    useEffect(() => {
+        if (!result) return
+        let cancelled = false
+
+        setAnalysisLoading(true)
+        setAnalysisError(null)
+
+        fetch('/api/analyze', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(result),
+        })
+            .then(async res => {
+                const data = await res.json()
+                if (!res.ok || !data.analysis) {
+                    throw new Error(data.error || 'Gagal memuat analisis AI')
+                }
+                return data.analysis as string
+            })
+            .then(analysisText => {
+                if (cancelled) return
+                setAnalysis(analysisText)
+
+                // Simpan hasil lengkap (termasuk analisis AI) ke Firestore.
+                // Kalau gagal simpan, cukup dicatat di console — jangan ganggu pengalaman user.
+                addDoc(collection(db, 'hasil_test'), {
+                    riasec: result.riasec,
+                    bakat: result.bakat,
+                    character: result.character,
+                    dominant: result.dominant,
+                    answers: result.answers ?? {},
+                    openAnswers: result.openAnswers ?? {},
+                    analysis: analysisText,
+                    createdAt: serverTimestamp(),
+                }).catch(err => console.error('Gagal simpan hasil ke Firestore:', err))
+            })
+            .catch(err => {
+                if (!cancelled) setAnalysisError(err.message || 'Gagal memuat analisis AI')
+            })
+            .finally(() => {
+                if (!cancelled) setAnalysisLoading(false)
+            })
+
+        return () => { cancelled = true }
+    }, [result])
 
     /* ── Phase 0: scanning animation ── */
     useEffect(() => {
@@ -721,6 +777,51 @@ export default function ResultPage() {
                             width: '100%', animation: 'slideUp 0.5s ease',
                             display: 'flex', flexDirection: 'column', gap: '20px',
                         }}>
+                            {/* Analisis AI (Gemini) */}
+                            <div style={{
+                                border: `2px solid ${color}`,
+                                background: 'rgba(10,10,26,0.85)',
+                                padding: '28px 32px',
+                                boxShadow: `0 0 24px ${color}22`,
+                            }}>
+                                <div style={{
+                                    fontFamily: "'Press Start 2P', monospace",
+                                    fontSize: '7px', color,
+                                    letterSpacing: '2px', marginBottom: '20px',
+                                }}>
+                                    ◈ ANALISIS AI
+                                </div>
+
+                                {analysisLoading && (
+                                    <div style={{
+                                        fontFamily: "'Press Start 2P', monospace",
+                                        fontSize: '6px', color: 'var(--muted)',
+                                        animation: 'pulse 1s ease-in-out infinite',
+                                    }}>
+                                        MENGANALISIS JAWABANMU...
+                                    </div>
+                                )}
+
+                                {!analysisLoading && analysisError && (
+                                    <div style={{
+                                        fontFamily: "'VT323', monospace",
+                                        fontSize: '16px', color: '#ff6b6b',
+                                    }}>
+                                        Analisis AI gagal dimuat. Hasil tes kamu tetap valid kok — coba refresh halaman ini kalau mau lihat analisisnya lagi.
+                                    </div>
+                                )}
+
+                                {!analysisLoading && !analysisError && analysis && (
+                                    <div style={{
+                                        fontFamily: "'VT323', monospace",
+                                        fontSize: '19px', lineHeight: 1.6,
+                                        color: 'var(--text)', whiteSpace: 'pre-wrap',
+                                    }}>
+                                        {analysis}
+                                    </div>
+                                )}
+                            </div>
+
                             {/* Karir */}
                             <div style={{
                                 border: `2px solid var(--border)`,
