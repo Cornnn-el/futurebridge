@@ -1,9 +1,29 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
+import { toJpeg } from "html-to-image";
 import StarCanvas from '@/components/StarCanvas'
 import { db } from '@/lib/firebase'
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
+
+/* ─────────────────────────────────────────
+   COLOR HELPER
+   html2canvas doesn't reliably parse 8-digit
+   hex-with-alpha colors (#RRGGBBAA). This
+   converts hexA('#7B2FFF', '33') -> a proper
+   rgba() string that renders correctly both
+   on-screen AND in the html2canvas capture.
+   alphaHex is the same 2-digit hex alpha
+   suffix used before (e.g. '33', '66', '0A').
+───────────────────────────────────────── */
+function hexA(hex: string, alphaHex: string) {
+    const h = hex.replace('#', '')
+    const r = parseInt(h.substring(0, 2), 16)
+    const g = parseInt(h.substring(2, 4), 16)
+    const b = parseInt(h.substring(4, 6), 16)
+    const a = parseInt(alphaHex, 16) / 255
+    return `rgba(${r}, ${g}, ${b}, ${a.toFixed(3)})`
+}
 
 /* ─────────────────────────────────────────
    TYPES
@@ -227,6 +247,82 @@ export default function ResultPage() {
         alert('Link berhasil dicopy!')
     }
 
+    // ── Download hasil sebagai JPG ──
+    const resultCardRef = useRef<HTMLDivElement>(null)
+    const aiSectionRef = useRef<HTMLDivElement>(null) // dipakai buat sembunyiin "Analisis AI" pas discreenshot
+    const actionsRef = useRef<HTMLDivElement>(null) // dipakai buat sembunyiin tombol2 (download/ulangi/share) pas discreenshot
+    const [downloading, setDownloading] = useState(false)
+
+    const downloadAsJpg = async () => {
+        if (!resultCardRef.current) return
+        setDownloading(true)
+
+        const aiEl = aiSectionRef.current
+        const actionsEl = actionsRef.current
+
+        const prevAiDisplay = aiEl?.style.display ?? ''
+        const prevActionsDisplay = actionsEl?.style.display ?? ''
+
+        if (aiEl) aiEl.style.display = 'none'
+        if (actionsEl) actionsEl.style.display = 'none'
+
+        try {
+            await document.fonts.ready
+
+            const dataUrl = await toJpeg(resultCardRef.current, {
+                quality: 0.95,
+                pixelRatio: 2,
+                backgroundColor: '#0A0A1A',
+                skipFonts: true,
+            })
+
+            const link = document.createElement('a')
+            link.download = `futurebridge-hasil-${Date.now()}.jpg`
+            link.href = dataUrl
+            link.click()
+
+        } catch (err) {
+            console.error(err)
+            alert('Gagal membuat gambar, coba lagi ya.')
+        } finally {
+            if (aiEl) aiEl.style.display = prevAiDisplay
+            if (actionsEl) actionsEl.style.display = prevActionsDisplay
+            setDownloading(false)
+        }
+    }
+
+    // ── Nama user (buat personalisasi kartu JPG) ──
+    const [userName, setUserName] = useState('')
+    const [showNameModal, setShowNameModal] = useState(false)
+    const [nameInput, setNameInput] = useState('')
+    const [pendingDownload, setPendingDownload] = useState(false)
+
+    // Klik tombol "Download Hasil": kalau nama belum keisi, munculin modal dulu. Kalau udah ada, langsung screenshot.
+    const handleDownloadClick = () => {
+        if (userName.trim()) {
+            downloadAsJpg()
+        } else {
+            setNameInput('')
+            setShowNameModal(true)
+        }
+    }
+
+    const confirmNameAndDownload = () => {
+        const trimmed = nameInput.trim()
+        if (!trimmed) return
+        setUserName(trimmed)
+        setShowNameModal(false)
+        setPendingDownload(true) // nunggu render ulang (nama muncul di kartu) baru discreenshot
+    }
+
+    // Begitu userName berhasil di-set & DOM ke-update, baru jalanin screenshot
+    useEffect(() => {
+        if (pendingDownload && userName.trim()) {
+            setPendingDownload(false)
+            downloadAsJpg()
+        }
+    }, [pendingDownload, userName])
+
     const [result, setResult] = useState<ResultData | null>(null)
     const [phase, setPhase] = useState<0 | 1 | 2>(0)
     const [scanPct, setScanPct] = useState(0)
@@ -403,7 +499,7 @@ export default function ResultPage() {
                         width: '320px', border: `2px solid ${color}`,
                         padding: '32px', textAlign: 'center',
                         background: 'rgba(10,10,26,0.9)',
-                        boxShadow: `0 0 40px ${color}33`,
+                        boxShadow: `0 0 40px ${hexA(color, '33')}`,
                         position: 'relative',
                     }}>
                         {/* corner pixels */}
@@ -498,419 +594,537 @@ export default function ResultPage() {
                     position: 'relative', zIndex: 1,
                 }}>
 
-                    {/* ── SECTION 0: Character Hero ── */}
-                    {visibleSections >= 1 && (
-                        <div style={{
-                            width: '100%', textAlign: 'center',
-                            animation: 'slideUp 0.5s ease',
-                        }}>
-                            {/* Glow bg */}
+                    <div ref={resultCardRef} style={{
+                        width: '100%',
+                        display: 'flex', flexDirection: 'column',
+                        alignItems: 'center', gap: '32px',
+                        background: '#0A0A1A',
+                        padding: '24px',
+                    }}>
+
+                        {/* Nama user — cuma tampil kalau diisi */}
+                        {userName.trim() && (
                             <div style={{
-                                position: 'relative', display: 'inline-block',
-                                marginBottom: '24px',
+                                fontFamily: "'Press Start 2P', monospace",
+                                fontSize: '8px', color: color,
+                                letterSpacing: '2px', textAlign: 'center',
                             }}>
+                                ✦ HASIL UNTUK: {userName.trim().toUpperCase()} ✦
+                            </div>
+                        )}
+
+                        {/* ── SECTION 0: Character Hero ── */}
+                        {visibleSections >= 1 && (
+                            <div style={{
+                                width: '100%', textAlign: 'center',
+                                animation: 'slideUp 0.5s ease',
+                            }}>
+                                {/* Glow bg */}
                                 <div style={{
-                                    position: 'absolute', inset: '-20px',
-                                    background: `radial-gradient(ellipse, ${color}33 0%, transparent 70%)`,
-                                    borderRadius: '50%',
-                                    animation: 'pulse 2s ease-in-out infinite',
-                                }} />
-                                <div style={{ animation: 'cfloat 3s ease-in-out infinite' }}>
-                                    {sprites[char](200)}
+                                    position: 'relative', display: 'inline-block',
+                                    marginBottom: '24px',
+                                }}>
+                                    <div style={{
+                                        position: 'absolute', inset: '-20px',
+                                        background: `radial-gradient(ellipse, ${hexA(color, '33')} 0%, transparent 70%)`,
+                                        borderRadius: '50%',
+                                        animation: 'pulse 2s ease-in-out infinite',
+                                    }} />
+                                    <div style={{ animation: 'cfloat 3s ease-in-out infinite' }}>
+                                        {sprites[char](200)}
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div style={{
-                                fontFamily: "'Press Start 2P', monospace",
-                                fontSize: '8px', color: 'var(--muted)',
-                                letterSpacing: '3px', marginBottom: '12px',
-                            }}>
-                                ✦ KARAKTER KAMU ADALAH ✦
-                            </div>
-
-                            <h1 style={{
-                                fontFamily: "'Press Start 2P', monospace",
-                                fontSize: '28px', color,
-                                textShadow: `0 0 30px ${color}, 0 0 60px ${color}66`,
-                                letterSpacing: '4px', marginBottom: '8px',
-                                lineHeight: 1.4,
-                            }}>
-                                {data.name}
-                            </h1>
-
-                            <div style={{
-                                fontFamily: "'VT323', monospace",
-                                fontSize: '24px', color: 'var(--muted)',
-                                letterSpacing: '2px', marginBottom: '24px',
-                            }}>
-                                {data.title}
-                            </div>
-
-                            {/* Quote */}
-                            <div style={{
-                                border: `1px solid ${color}66`,
-                                padding: '16px 24px',
-                                background: `${color}0A`,
-                                maxWidth: '560px', margin: '0 auto',
-                                fontFamily: "'VT323', monospace",
-                                fontSize: '20px', color,
-                                fontStyle: 'italic', lineHeight: 1.6,
-                            }}>
-                                {data.quote}
-                            </div>
-                        </div>
-                    )}
-
-                    {/* ── SECTION 1: Description & Traits ── */}
-                    {visibleSections >= 2 && (
-                        <div style={{
-                            width: '100%', animation: 'slideUp 0.5s ease',
-                            border: `2px solid ${color}44`,
-                            background: 'rgba(10,10,26,0.85)',
-                            padding: '28px 32px',
-                            position: 'relative',
-                        }}>
-                            {/* Corner brackets */}
-                            {(['tl', 'tr', 'bl', 'br'] as const).map(c => (
-                                <div key={c} style={{
-                                    position: 'absolute',
-                                    top: c[0] === 't' ? -2 : 'auto', bottom: c[0] === 'b' ? -2 : 'auto',
-                                    left: c[1] === 'l' ? -2 : 'auto', right: c[1] === 'r' ? -2 : 'auto',
-                                    width: 12, height: 12,
-                                    borderColor: color, borderStyle: 'solid', borderWidth: 0,
-                                    borderTopWidth: c[0] === 't' ? 3 : 0,
-                                    borderBottomWidth: c[0] === 'b' ? 3 : 0,
-                                    borderLeftWidth: c[1] === 'l' ? 3 : 0,
-                                    borderRightWidth: c[1] === 'r' ? 3 : 0,
-                                }} />
-                            ))}
-
-                            <div style={{
-                                fontFamily: "'Press Start 2P', monospace",
-                                fontSize: '7px', color, letterSpacing: '2px',
-                                marginBottom: '16px',
-                            }}>
-                                PROFIL KEPRIBADIAN
-                            </div>
-
-                            <p style={{
-                                fontSize: '20px', color: 'var(--text)',
-                                lineHeight: 1.8, marginBottom: '24px',
-                            }}>
-                                {data.desc}
-                            </p>
-
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-                                {data.traits.map(t => (
-                                    <span key={t} style={{
-                                        fontFamily: "'Press Start 2P', monospace",
-                                        fontSize: '6px', color,
-                                        border: `1px solid ${color}`,
-                                        padding: '6px 12px', letterSpacing: '1px',
-                                        background: `${color}11`,
-                                    }}>
-                                        {t}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
-                    )}
-
-                    {/* ── SECTION 2: RIASEC + Bakat bars ── */}
-                    {visibleSections >= 3 && (
-                        <div style={{
-                            width: '100%', display: 'grid',
-                            gridTemplateColumns: '1fr 1fr', gap: '20px',
-                            animation: 'slideUp 0.5s ease',
-                        }}>
-                            {/* RIASEC */}
-                            <div style={{
-                                border: `2px solid var(--border)`,
-                                background: 'rgba(10,10,26,0.85)',
-                                padding: '24px',
-                            }}>
                                 <div style={{
                                     fontFamily: "'Press Start 2P', monospace",
-                                    fontSize: '6px', color: 'var(--cyan)',
-                                    letterSpacing: '2px', marginBottom: '20px',
+                                    fontSize: '8px', color: 'var(--muted)',
+                                    letterSpacing: '3px', marginBottom: '12px',
                                 }}>
-                                    PROFIL RIASEC
+                                    ✦ KARAKTER KAMU ADALAH ✦
                                 </div>
-                                {(Object.keys(result.riasec) as RiasecKey[]).map(key => (
-                                    <div key={key} style={{ marginBottom: '12px' }}>
-                                        <div style={{
-                                            display: 'flex', justifyContent: 'space-between',
-                                            marginBottom: '4px',
-                                        }}>
-                                            <span style={{
-                                                fontFamily: "'Press Start 2P', monospace",
-                                                fontSize: '6px',
-                                                color: key === result.dominant ? riasecColor[key] : 'var(--muted)',
-                                            }}>
-                                                {key} — {riasecLabel[key]}
-                                                {key === result.dominant && ' ★'}
-                                            </span>
-                                            <span style={{
-                                                fontFamily: "'Press Start 2P', monospace",
-                                                fontSize: '6px', color: 'var(--muted)',
-                                            }}>
-                                                {result.riasec[key]}
-                                            </span>
-                                        </div>
-                                        <div style={{ height: '6px', background: 'var(--border)' }}>
-                                            <div style={{
-                                                height: '100%',
-                                                width: `${maxRiasec > 0 ? (result.riasec[key] / maxRiasec) * 100 : 0}%`,
-                                                background: riasecColor[key],
-                                                boxShadow: key === result.dominant ? `0 0 8px ${riasecColor[key]}` : 'none',
-                                                transition: 'width 1s ease',
-                                            }} />
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
 
-                            {/* Bakat */}
-                            <div style={{
-                                border: `2px solid var(--border)`,
-                                background: 'rgba(10,10,26,0.85)',
-                                padding: '24px',
-                            }}>
-                                <div style={{
+                                <h1 style={{
                                     fontFamily: "'Press Start 2P', monospace",
-                                    fontSize: '6px', color: 'var(--gold)',
-                                    letterSpacing: '2px', marginBottom: '20px',
+                                    fontSize: '28px', color,
+                                    textShadow: `0 0 30px ${color}, 0 0 60px ${hexA(color, '66')}`,
+                                    letterSpacing: '4px', marginBottom: '8px',
+                                    lineHeight: 1.4,
                                 }}>
-                                    SKOR BAKAT
+                                    {data.name}
+                                </h1>
+
+                                <div style={{
+                                    fontFamily: "'VT323', monospace",
+                                    fontSize: '24px', color: 'var(--muted)',
+                                    letterSpacing: '2px', marginBottom: '24px',
+                                }}>
+                                    {data.title}
                                 </div>
-                                {([
-                                    { key: 'verbal', label: 'Penalaran Verbal', c: '#FF6B9D' },
-                                    { key: 'numerik', label: 'Kemampuan Numerik', c: '#7B2FFF' },
-                                    { key: 'abstrak', label: 'Penalaran Abstrak', c: '#00F5D4' },
-                                    { key: 'spasial', label: 'Relasi Ruang', c: '#FFD700' },
-                                ] as const).map(({ key, label, c }) => (
-                                    <div key={key} style={{ marginBottom: '12px' }}>
-                                        <div style={{
-                                            display: 'flex', justifyContent: 'space-between',
-                                            marginBottom: '4px',
-                                        }}>
-                                            <span style={{
-                                                fontFamily: "'Press Start 2P', monospace",
-                                                fontSize: '6px', color: 'var(--muted)',
-                                            }}>
-                                                {label}
-                                            </span>
-                                            <span style={{
-                                                fontFamily: "'Press Start 2P', monospace",
-                                                fontSize: '6px', color: c,
-                                            }}>
-                                                {result.bakat[key]}
-                                            </span>
-                                        </div>
-                                        <div style={{ height: '6px', background: 'var(--border)' }}>
-                                            <div style={{
-                                                height: '100%',
-                                                width: `${maxBakat > 0 ? (result.bakat[key] / maxBakat) * 100 : 0}%`,
-                                                background: c,
-                                                boxShadow: `0 0 6px ${c}88`,
-                                                transition: 'width 1s ease',
-                                            }} />
-                                        </div>
-                                    </div>
-                                ))}
+
+                                {/* Quote */}
+                                <div style={{
+                                    border: `1px solid ${hexA(color, '66')}`,
+                                    padding: '16px 24px',
+                                    background: hexA(color, '0A'),
+                                    maxWidth: '560px', margin: '0 auto',
+                                    fontFamily: "'VT323', monospace",
+                                    fontSize: '20px', color,
+                                    fontStyle: 'italic', lineHeight: 1.6,
+                                }}>
+                                    {data.quote}
+                                </div>
                             </div>
-                        </div>
-                    )}
+                        )}
 
-                    {/* ── SECTION 3: Rekomendasi Jurusan ── */}
-                    {visibleSections >= 4 && (
-                        <div style={{
-                            width: '100%', animation: 'slideUp 0.5s ease',
-                            border: `2px solid ${color}44`,
-                            background: 'rgba(10,10,26,0.85)',
-                            padding: '28px 32px',
-                        }}>
+                        {/* ── SECTION 1: Description & Traits ── */}
+                        {visibleSections >= 2 && (
                             <div style={{
-                                fontFamily: "'Press Start 2P', monospace",
-                                fontSize: '7px', color, letterSpacing: '2px',
-                                marginBottom: '20px',
-                            }}>
-                                REKOMENDASI JURUSAN
-                            </div>
-
-                            <div style={{
-                                display: 'grid',
-                                gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',
-                                gap: '12px',
-                            }}>
-                                {allJurusan.map((j, i) => (
-                                    <div key={j} style={{
-                                        border: `1px solid ${i < data.jurusan.length ? color : 'var(--border)'}`,
-                                        padding: '12px 16px',
-                                        background: i < data.jurusan.length ? `${color}0F` : 'transparent',
-                                        fontFamily: "'VT323', monospace",
-                                        fontSize: '18px',
-                                        color: i < data.jurusan.length ? color : 'var(--muted)',
-                                        display: 'flex', alignItems: 'center', gap: '8px',
-                                    }}>
-                                        <span style={{ fontSize: '12px', opacity: 0.6 }}>
-                                            {i < data.jurusan.length ? '★' : '○'}
-                                        </span>
-                                        {j}
-                                    </div>
-                                ))}
-                            </div>
-
-                            <p style={{
-                                fontSize: '16px', color: 'var(--muted)',
-                                marginTop: '16px', lineHeight: 1.6,
-                            }}>
-                                ★ = Rekomendasi utama berdasarkan profil minat &nbsp;|&nbsp;
-                                ○ = Rekomendasi tambahan berdasarkan skor bakat
-                            </p>
-                        </div>
-                    )}
-
-                    {/* ── SECTION 4: Karir & CTA ── */}
-                    {visibleSections >= 5 && (
-                        <div style={{
-                            width: '100%', animation: 'slideUp 0.5s ease',
-                            display: 'flex', flexDirection: 'column', gap: '20px',
-                        }}>
-                            {/* Analisis AI (Gemini) */}
-                            <div style={{
-                                border: `2px solid ${color}`,
+                                width: '100%', animation: 'slideUp 0.5s ease',
+                                border: `2px solid ${hexA(color, '44')}`,
                                 background: 'rgba(10,10,26,0.85)',
                                 padding: '28px 32px',
-                                boxShadow: `0 0 24px ${color}22`,
+                                position: 'relative',
                             }}>
+                                {/* Corner brackets */}
+                                {(['tl', 'tr', 'bl', 'br'] as const).map(c => (
+                                    <div key={c} style={{
+                                        position: 'absolute',
+                                        top: c[0] === 't' ? -2 : 'auto', bottom: c[0] === 'b' ? -2 : 'auto',
+                                        left: c[1] === 'l' ? -2 : 'auto', right: c[1] === 'r' ? -2 : 'auto',
+                                        width: 12, height: 12,
+                                        borderColor: color, borderStyle: 'solid', borderWidth: 0,
+                                        borderTopWidth: c[0] === 't' ? 3 : 0,
+                                        borderBottomWidth: c[0] === 'b' ? 3 : 0,
+                                        borderLeftWidth: c[1] === 'l' ? 3 : 0,
+                                        borderRightWidth: c[1] === 'r' ? 3 : 0,
+                                    }} />
+                                ))}
+
                                 <div style={{
                                     fontFamily: "'Press Start 2P', monospace",
-                                    fontSize: '7px', color,
-                                    letterSpacing: '2px', marginBottom: '20px',
+                                    fontSize: '7px', color, letterSpacing: '2px',
+                                    marginBottom: '16px',
                                 }}>
-                                    ◈ ANALISIS AI
+                                    PROFIL KEPRIBADIAN
                                 </div>
 
-                                {analysisLoading && (
-                                    <div style={{
-                                        fontFamily: "'Press Start 2P', monospace",
-                                        fontSize: '6px', color: 'var(--muted)',
-                                        animation: 'pulse 1s ease-in-out infinite',
-                                    }}>
-                                        MENGANALISIS JAWABANMU...
-                                    </div>
-                                )}
-
-                                {!analysisLoading && analysisError && (
-                                    <div style={{
-                                        fontFamily: "'VT323', monospace",
-                                        fontSize: '16px', color: '#ff6b6b',
-                                    }}>
-                                        Analisis AI gagal dimuat. Hasil tes kamu tetap valid kok — coba refresh halaman ini kalau mau lihat analisisnya lagi.
-                                    </div>
-                                )}
-
-                                {!analysisLoading && !analysisError && analysis && (
-                                    <div style={{
-                                        fontFamily: "'VT323', monospace",
-                                        fontSize: '19px', lineHeight: 1.6,
-                                        color: 'var(--text)', whiteSpace: 'pre-wrap',
-                                    }}>
-                                        {analysis}
-                                    </div>
-                                )}
-                            </div>
-
-                            {/* Karir */}
-                            <div style={{
-                                border: `2px solid var(--border)`,
-                                background: 'rgba(10,10,26,0.85)',
-                                padding: '28px 32px',
-                            }}>
-                                <div style={{
-                                    fontFamily: "'Press Start 2P', monospace",
-                                    fontSize: '7px', color: 'var(--muted)',
-                                    letterSpacing: '2px', marginBottom: '20px',
+                                <p style={{
+                                    fontSize: '20px', color: '#E8F7FF',
+                                    lineHeight: 1.8, marginBottom: '24px',
                                 }}>
-                                    JALUR KARIR
-                                </div>
-                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
-                                    {data.karir.map(k => (
-                                        <div key={k} style={{
+                                    {data.desc}
+                                </p>
+
+                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+                                    {data.traits.map(t => (
+                                        <span key={t} style={{
                                             fontFamily: "'Press Start 2P', monospace",
-                                            fontSize: '6px', color: 'var(--text)',
-                                            border: '1px solid var(--border)',
-                                            padding: '8px 16px',
-                                            background: 'var(--bg)',
+                                            fontSize: '6px', color,
+                                            border: `1px solid ${color}`,
+                                            padding: '6px 12px', letterSpacing: '1px',
+                                            background: hexA(color, '11'),
                                         }}>
-                                            ▶ {k}
+                                            {t}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        {/* ── SECTION 2: RIASEC + Bakat bars ── */}
+                        {visibleSections >= 3 && (
+                            <div style={{
+                                width: '100%', display: 'grid',
+                                gridTemplateColumns: '1fr 1fr', gap: '20px',
+                                animation: 'slideUp 0.5s ease',
+                            }}>
+                                {/* RIASEC */}
+                                <div style={{
+                                    border: `2px solid var(--border)`,
+                                    background: 'rgba(10,10,26,0.85)',
+                                    padding: '24px',
+                                }}>
+                                    <div style={{
+                                        fontFamily: "'Press Start 2P', monospace",
+                                        fontSize: '6px', color: 'var(--cyan)',
+                                        letterSpacing: '2px', marginBottom: '20px',
+                                    }}>
+                                        PROFIL RIASEC
+                                    </div>
+                                    {(Object.keys(result.riasec) as RiasecKey[]).map(key => (
+                                        <div key={key} style={{ marginBottom: '12px' }}>
+                                            <div style={{
+                                                display: 'flex', justifyContent: 'space-between',
+                                                marginBottom: '4px',
+                                            }}>
+                                                <span style={{
+                                                    fontFamily: "'Press Start 2P', monospace",
+                                                    fontSize: '6px',
+                                                    color: key === result.dominant ? riasecColor[key] : 'var(--muted)',
+                                                }}>
+                                                    {key} — {riasecLabel[key]}
+                                                    {key === result.dominant && ' ★'}
+                                                </span>
+                                                <span style={{
+                                                    fontFamily: "'Press Start 2P', monospace",
+                                                    fontSize: '6px', color: 'var(--muted)',
+                                                }}>
+                                                    {result.riasec[key]}
+                                                </span>
+                                            </div>
+                                            <div style={{ height: '6px', background: 'var(--border)' }}>
+                                                <div style={{
+                                                    height: '100%',
+                                                    width: `${maxRiasec > 0 ? (result.riasec[key] / maxRiasec) * 100 : 0}%`,
+                                                    background: riasecColor[key],
+                                                    boxShadow: key === result.dominant ? `0 0 8px ${riasecColor[key]}` : 'none',
+                                                    transition: 'width 1s ease',
+                                                }} />
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {/* Bakat */}
+                                <div style={{
+                                    border: `2px solid var(--border)`,
+                                    background: 'rgba(10,10,26,0.85)',
+                                    padding: '24px',
+                                }}>
+                                    <div style={{
+                                        fontFamily: "'Press Start 2P', monospace",
+                                        fontSize: '6px', color: 'var(--gold)',
+                                        letterSpacing: '2px', marginBottom: '20px',
+                                    }}>
+                                        SKOR BAKAT
+                                    </div>
+                                    {([
+                                        { key: 'verbal', label: 'Penalaran Verbal', c: '#FF6B9D' },
+                                        { key: 'numerik', label: 'Kemampuan Numerik', c: '#7B2FFF' },
+                                        { key: 'abstrak', label: 'Penalaran Abstrak', c: '#00F5D4' },
+                                        { key: 'spasial', label: 'Relasi Ruang', c: '#FFD700' },
+                                    ] as const).map(({ key, label, c }) => (
+                                        <div key={key} style={{ marginBottom: '12px' }}>
+                                            <div style={{
+                                                display: 'flex', justifyContent: 'space-between',
+                                                marginBottom: '4px',
+                                            }}>
+                                                <span style={{
+                                                    fontFamily: "'Press Start 2P', monospace",
+                                                    fontSize: '6px', color: 'var(--muted)',
+                                                }}>
+                                                    {label}
+                                                </span>
+                                                <span style={{
+                                                    fontFamily: "'Press Start 2P', monospace",
+                                                    fontSize: '6px', color: c,
+                                                }}>
+                                                    {result.bakat[key]}
+                                                </span>
+                                            </div>
+                                            <div style={{ height: '6px', background: 'var(--border)' }}>
+                                                <div style={{
+                                                    height: '100%',
+                                                    width: `${maxBakat > 0 ? (result.bakat[key] / maxBakat) * 100 : 0}%`,
+                                                    background: c,
+                                                    boxShadow: `0 0 6px ${c}88`,
+                                                    transition: 'width 1s ease',
+                                                }} />
+                                            </div>
                                         </div>
                                     ))}
                                 </div>
                             </div>
+                        )}
 
-                            {/* CTA buttons */}
+                        {/* ── SECTION 3: Rekomendasi Jurusan ── */}
+                        {visibleSections >= 4 && (
                             <div style={{
-                                display: 'flex', gap: '16px',
-                                justifyContent: 'center', flexWrap: 'wrap',
+                                width: '100%', animation: 'slideUp 0.5s ease',
+                                border: `2px solid ${hexA(color, '44')}`,
+                                background: 'rgba(10,10,26,0.85)',
+                                padding: '28px 32px',
                             }}>
-                                <button
-                                    onClick={() => {
-                                        sessionStorage.removeItem('futurebridge-result')
-                                        localStorage.removeItem('fb-answers')
-                                        localStorage.removeItem('fb-index')
-                                        router.push('/story/test')
-                                    }}
-                                    className="btn-outline cursor-target"
-                                    style={{
-                                        fontFamily: "'Press Start 2P', monospace",
-                                        fontSize: '7px', padding: '14px 24px',
-                                    }}
-                                >
-                                    ↺ ULANGI TES
-                                </button>
-                                <button
-                                    onClick={() => router.push('/')}
-                                    className="btn-primary cursor-target"
-                                    style={{
-                                        fontFamily: "'Press Start 2P', monospace",
-                                        fontSize: '7px', padding: '14px 24px',
-                                        background: color,
-                                        boxShadow: `4px 4px 0 ${color}66`,
-                                    }}
-                                >
-                                    ▶ KEMBALI KE HOME
-                                </button>
-                            </div>
+                                <div style={{
+                                    fontFamily: "'Press Start 2P', monospace",
+                                    fontSize: '7px', color, letterSpacing: '2px',
+                                    marginBottom: '20px',
+                                }}>
+                                    REKOMENDASI JURUSAN
+                                </div>
 
-                            {/* Share buttons */}
-                            <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-                                <button
-                                    onClick={() => shareWhatsApp(data.name, data.title)}
-                                    className="btn-outline cursor-target"
-                                    style={{ fontFamily: "'Press Start 2P', monospace", fontSize: '6px', padding: '10px 16px', borderColor: '#25D366', color: '#25D366' }}
-                                >
-                                    ✦ WHATSAPP
-                                </button>
-                                <button
-                                    onClick={() => shareTwitter(data.name, data.title)}
-                                    className="btn-outline cursor-target"
-                                    style={{ fontFamily: "'Press Start 2P', monospace", fontSize: '6px', padding: '10px 16px', borderColor: '#1DA1F2', color: '#1DA1F2' }}
-                                >
-                                    ✦ TWITTER
-                                </button>
-                                <button
-                                    onClick={copyLink}
-                                    className="btn-outline cursor-target"
-                                    style={{ fontFamily: "'Press Start 2P', monospace", fontSize: '6px', padding: '10px 16px' }}
-                                >
-                                    ◈ COPY LINK
-                                </button>
+                                <div style={{
+                                    display: 'grid',
+                                    gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',
+                                    gap: '12px',
+                                }}>
+                                    {allJurusan.map((j, i) => (
+                                        <div key={j} style={{
+                                            border: `1px solid ${i < data.jurusan.length ? color : 'var(--border)'}`,
+                                            padding: '12px 16px',
+                                            background: i < data.jurusan.length ? hexA(color, '0F') : 'transparent',
+                                            fontFamily: "'VT323', monospace",
+                                            fontSize: '18px',
+                                            color: i < data.jurusan.length ? color : 'var(--muted)',
+                                            display: 'flex', alignItems: 'center', gap: '8px',
+                                        }}>
+                                            <span style={{ fontSize: '12px', opacity: 0.6 }}>
+                                                {i < data.jurusan.length ? '★' : '○'}
+                                            </span>
+                                            {j}
+                                        </div>
+                                    ))}
+                                </div>
+
+                                <p style={{
+                                    fontSize: '16px', color: 'var(--muted)',
+                                    marginTop: '16px', lineHeight: 1.6,
+                                }}>
+                                    ★ = Rekomendasi utama berdasarkan profil minat &nbsp;|&nbsp;
+                                    ○ = Rekomendasi tambahan berdasarkan skor bakat
+                                </p>
                             </div>
+                        )}
+
+                        {/* ── SECTION 4: Karir & CTA ── */}
+                        {visibleSections >= 5 && (
+                            <div style={{
+                                width: '100%', animation: 'slideUp 0.5s ease',
+                                display: 'flex', flexDirection: 'column', gap: '20px',
+                            }}>
+                                {/* Analisis AI (Gemini) */}
+                                <div ref={aiSectionRef} style={{
+                                    border: `2px solid ${color}`,
+                                    background: 'rgba(10,10,26,0.85)',
+                                    padding: '28px 32px',
+                                    boxShadow: `0 0 24px ${hexA(color, '22')}`,
+                                }}>
+                                    <div style={{
+                                        fontFamily: "'Press Start 2P', monospace",
+                                        fontSize: '7px', color,
+                                        letterSpacing: '2px', marginBottom: '20px',
+                                    }}>
+                                        ◈ ANALISIS AI
+                                    </div>
+
+                                    {analysisLoading && (
+                                        <div style={{
+                                            fontFamily: "'Press Start 2P', monospace",
+                                            fontSize: '6px', color: 'var(--muted)',
+                                            animation: 'pulse 1s ease-in-out infinite',
+                                        }}>
+                                            MENGANALISIS JAWABANMU...
+                                        </div>
+                                    )}
+
+                                    {!analysisLoading && analysisError && (
+                                        <div style={{
+                                            fontFamily: "'VT323', monospace",
+                                            fontSize: '16px', color: '#ff6b6b',
+                                        }}>
+                                            Analisis AI gagal dimuat. Hasil tes kamu tetap valid kok — coba refresh halaman ini kalau mau lihat analisisnya lagi.
+                                        </div>
+                                    )}
+
+                                    {!analysisLoading && !analysisError && analysis && (
+                                        <div style={{
+                                            fontFamily: "'VT323', monospace",
+                                            fontSize: '19px', lineHeight: 1.6,
+                                            color: 'var(--text)', whiteSpace: 'pre-wrap',
+                                        }}>
+                                            {analysis}
+                                        </div>
+                                    )}
+                                </div>
+
+                                {/* Karir */}
+                                <div style={{
+                                    border: `2px solid var(--border)`,
+                                    background: 'rgba(10,10,26,0.85)',
+                                    padding: '28px 32px',
+                                }}>
+                                    <div style={{
+                                        fontFamily: "'Press Start 2P', monospace",
+                                        fontSize: '7px', color: 'var(--muted)',
+                                        letterSpacing: '2px', marginBottom: '20px',
+                                    }}>
+                                        JALUR KARIR
+                                    </div>
+                                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+                                        {data.karir.map(k => (
+                                            <div key={k} style={{
+                                                fontFamily: "'Press Start 2P', monospace",
+                                                fontSize: '6px', color: 'var(--text)',
+                                                border: '1px solid var(--border)',
+                                                padding: '8px 16px',
+                                                background: 'var(--bg)',
+                                            }}>
+                                                ▶ {k}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Area tombol: download, CTA, share — semua disembunyiin pas screenshot */}
+                                <div ref={actionsRef} style={{
+                                    display: 'flex', flexDirection: 'column',
+                                    alignItems: 'center', gap: '20px', width: '100%',
+                                }}>
+                                    {/* Download button */}
+                                    <button
+                                        onClick={handleDownloadClick}
+                                        disabled={downloading}
+                                        className="btn-primary cursor-target"
+                                        style={{
+                                            fontFamily: "'Press Start 2P', monospace",
+                                            fontSize: '7px', padding: '14px 24px',
+                                            background: color,
+                                            boxShadow: `4px 4px 0 ${hexA(color, '66')}`,
+                                            opacity: downloading ? 0.6 : 1,
+                                            cursor: downloading ? 'wait' : 'pointer',
+                                        }}
+                                    >
+                                        {downloading ? '◌ MEMPROSES...' : '⬇ DOWNLOAD HASIL'}
+                                    </button>
+
+                                    {/* CTA buttons */}
+                                    <div style={{
+                                        display: 'flex', gap: '16px',
+                                        justifyContent: 'center', flexWrap: 'wrap',
+                                    }}>
+                                        <button
+                                            onClick={() => {
+                                                sessionStorage.removeItem('futurebridge-result')
+                                                localStorage.removeItem('fb-answers')
+                                                localStorage.removeItem('fb-index')
+                                                router.push('/story/test')
+                                            }}
+                                            className="btn-outline cursor-target"
+                                            style={{
+                                                fontFamily: "'Press Start 2P', monospace",
+                                                fontSize: '7px', padding: '14px 24px',
+                                            }}
+                                        >
+                                            ↺ ULANGI TES
+                                        </button>
+                                        <button
+                                            onClick={() => router.push('/')}
+                                            className="btn-outline cursor-target"
+                                            style={{
+                                                fontFamily: "'Press Start 2P', monospace",
+                                                fontSize: '7px', padding: '14px 24px',
+                                            }}
+                                        >
+                                            ▶ KEMBALI KE HOME
+                                        </button>
+                                    </div>
+
+                                    {/* Share buttons */}
+                                    <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                                        <button
+                                            onClick={() => shareWhatsApp(data.name, data.title)}
+                                            className="btn-outline cursor-target"
+                                            style={{ fontFamily: "'Press Start 2P', monospace", fontSize: '6px', padding: '10px 16px', borderColor: '#25D366', color: '#25D366' }}
+                                        >
+                                            ✦ WHATSAPP
+                                        </button>
+                                        <button
+                                            onClick={() => shareTwitter(data.name, data.title)}
+                                            className="btn-outline cursor-target"
+                                            style={{ fontFamily: "'Press Start 2P', monospace", fontSize: '6px', padding: '10px 16px', borderColor: '#1DA1F2', color: '#1DA1F2' }}
+                                        >
+                                            ✦ TWITTER
+                                        </button>
+                                        <button
+                                            onClick={copyLink}
+                                            className="btn-outline cursor-target"
+                                            style={{ fontFamily: "'Press Start 2P', monospace", fontSize: '6px', padding: '10px 16px' }}
+                                        >
+                                            ◈ COPY LINK
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+
+                    </div>
+                </div>
+            )}
+
+            {/* ════════════════════════════════
+          MODAL — ISI NAMA SEBELUM DOWNLOAD
+      ════════════════════════════════ */}
+            {showNameModal && (
+                <div
+                    onClick={() => setShowNameModal(false)}
+                    style={{
+                        position: 'fixed', inset: 0, zIndex: 100,
+                        background: 'rgba(5,5,15,0.85)',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        padding: '24px',
+                    }}
+                >
+                    <div
+                        onClick={e => e.stopPropagation()}
+                        style={{
+                            width: '100%', maxWidth: '360px',
+                            border: `2px solid ${color}`,
+                            background: 'var(--bg)',
+                            boxShadow: `0 0 40px ${hexA(color, '44')}`,
+                            padding: '28px 24px',
+                            display: 'flex', flexDirection: 'column', gap: '16px',
+                        }}
+                    >
+                        <div style={{
+                            fontFamily: "'Press Start 2P', monospace",
+                            fontSize: '8px', color, letterSpacing: '2px',
+                        }}>
+                            ✦ SIAPA NAMAMU?
                         </div>
-                    )}
-
+                        <p style={{ fontSize: '18px', color: 'var(--muted)', lineHeight: 1.5 }}>
+                            Nama ini bakal muncul di gambar hasil yang kamu download.
+                        </p>
+                        <input
+                            autoFocus
+                            value={nameInput}
+                            onChange={e => setNameInput(e.target.value)}
+                            onKeyDown={e => { if (e.key === 'Enter') confirmNameAndDownload() }}
+                            maxLength={24}
+                            placeholder="Tulis namamu..."
+                            style={{
+                                fontFamily: "'VT323', monospace",
+                                fontSize: '20px',
+                                padding: '10px 12px',
+                                background: 'rgba(255,255,255,0.05)',
+                                border: `1px solid var(--border)`,
+                                color: 'var(--text)',
+                                outline: 'none',
+                            }}
+                        />
+                        <div style={{ display: 'flex', gap: '12px', justifyContent: 'flex-end' }}>
+                            <button
+                                onClick={() => setShowNameModal(false)}
+                                className="btn-outline cursor-target"
+                                style={{ fontFamily: "'Press Start 2P', monospace", fontSize: '6px', padding: '10px 16px' }}
+                            >
+                                BATAL
+                            </button>
+                            <button
+                                onClick={confirmNameAndDownload}
+                                disabled={!nameInput.trim()}
+                                className="btn-primary cursor-target"
+                                style={{
+                                    fontFamily: "'Press Start 2P', monospace",
+                                    fontSize: '6px', padding: '10px 16px',
+                                    background: color,
+                                    opacity: nameInput.trim() ? 1 : 0.5,
+                                    cursor: nameInput.trim() ? 'pointer' : 'not-allowed',
+                                }}
+                            >
+                                ⬇ DOWNLOAD
+                            </button>
+                        </div>
+                    </div>
                 </div>
             )}
 
